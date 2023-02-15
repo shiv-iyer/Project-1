@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fluff Finder</title>
 
+    <!-- Leaflet CSS import -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+
+    <!-- LINK OWN STYLESHEET OMG I FORGOT -->
+    <link rel="stylesheet" href="style.css"/>
 </head>
+
 <body>
     <!-- input can use a self-closing tag -->
-    <input type="text" id="searchValue"/>
+    <input type="text" id="searchValue" />
     <button id="btnSearch">Search</button>
-    
+
+    <div id="singaporeMap">
+    </div>
+
     <!-- Import Axios & Leaflet. Axios and Leaflet scripts go before own script.js -->
     <!-- because they do not depend on each other, order does not matter. -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.3/axios.min.js"></script>
-    <script src=""></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
     <!-- Script goes at the end of the body-->
     <script src="script.js"></script>
 
 </body>
+
 </html>
