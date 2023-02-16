@@ -7,6 +7,9 @@ const FOURSQUARE_API_KEY = "fsq3jMP2VLbUVepHLNvSdnHHmMc7KnQT7vAYp7wRcl+DPvU=";
 const sgLatLong = "1.290270,103.851959";
 const searchButton = document.getElementById("btnSearch");
 
+// add marker1 with any coordinates, will use Bishan Dog Park: 1.362372, 103.84859
+const marker1 = L.marker([1.362372, 103.84859]);
+
 // Unsure whether to write functions at the top or bottom (bc they are hoisted anyways). Will do bottom for now... used to from Java
 
 // Load Leaflet Map 
@@ -16,6 +19,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
+// next step: plot leaflet markers
+marker1.addTo(map);
 
 
 searchButton.addEventListener('click', function(){
