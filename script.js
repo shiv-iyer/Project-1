@@ -7,8 +7,17 @@ const FOURSQUARE_API_KEY = "fsq3jMP2VLbUVepHLNvSdnHHmMc7KnQT7vAYp7wRcl+DPvU=";
 const sgLatLong = "1.290270,103.851959";
 const searchButton = document.getElementById("btnSearch");
 
-// add marker1 with any coordinates, will use Bishan Dog Park: 1.362372, 103.84859
+// add marker1 with any coordinates, will use Bishan Dog Park
 const marker1 = L.marker([1.362372, 103.84859]);
+
+// add circle with any coordinates, will use Commonwealth Dog Run
+const circle = L.circle([1.304987, 103.797131], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(map);
+
 
 // Unsure whether to write functions at the top or bottom (bc they are hoisted anyways). Will do bottom for now... used to from Java
 
@@ -22,6 +31,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // next step: plot leaflet markers
 marker1.addTo(map);
+
+// next step: add popups to the map layers
+
 
 
 searchButton.addEventListener('click', function(){
