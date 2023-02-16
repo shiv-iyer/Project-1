@@ -37,12 +37,25 @@ marker1.addTo(map);
 marker1.bindPopup("I am a marker at Bishan Dog Park!");
 circle1.bindPopup("I am a circle at Commonwealth Dog Run!");
 
+loadData(fourSquareURL);
+
 // try out a standalone popup
 const testPopup = L.popup()
     .setLatLng([1.345516, 103.788447])
     .setContent("Standalone popup test at PIE Dog Run!")
     .openOn(map);
 
+// add
+let clickyPopup = L.popup();
+
+function onMapClick(e) {
+    clickyPopup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
 
 searchButton.addEventListener('click', function(){
     alert("Hello World");
@@ -58,7 +71,8 @@ function transformLatLng(initialLL){
 
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
-async function loadData(url, latLong, searchValue){
+// add back: latLong and searchValue in the params
+async function loadData(url){
     const response = await axios.get(url, {
         headers: {
             // Use capital letters for these. Accept is for (idk)
