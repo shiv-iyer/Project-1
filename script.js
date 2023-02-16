@@ -11,13 +11,14 @@ const searchButton = document.getElementById("btnSearch");
 const marker1 = L.marker([1.362372, 103.84859]);
 
 // add circle with any coordinates, will use Commonwealth Dog Run
-const circle = L.circle([1.304987, 103.797131], {
+const circle1 = L.circle([1.304987, 103.797131], {
     color: 'red',
     fillColor: '#f03',
     fillOpacity: 0.5,
     radius: 500
 }).addTo(map);
 
+// gave up on polygons for now
 
 // Unsure whether to write functions at the top or bottom (bc they are hoisted anyways). Will do bottom for now... used to from Java
 
@@ -33,7 +34,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 marker1.addTo(map);
 
 // next step: add popups to the map layers
+marker1.bindPopup("I am a marker at Bishan Dog Park!");
+circle1.bindPopup("I am a circle at Commonwealth Dog Run!");
 
+// try out a standalone popup
+const testPopup = L.popup()
+    .setLatLng([1.345516, 103.788447])
+    .setContent("Standalone popup test at PIE Dog Run!")
+    .openOn(map);
 
 
 searchButton.addEventListener('click', function(){
