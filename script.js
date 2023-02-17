@@ -95,6 +95,19 @@ for (let i = 0; i < 3; i++){
 
 console.log(groupArray);
 
+// layer control testing
+
+const baseLayer = {
+    'Randomized Marker Group 1': groupArray[0]
+}
+
+const overlays = {
+    'Randomized Marker Group 2': groupArray[1],
+    'Randomized Marker Group 3': groupArray[2]
+}
+
+L.control.layers(baseLayer, overlays).addTo(map);
+
 
 // TODO later leaflet has a function where you can set max bounds so that you can't zoom out of sg
 
