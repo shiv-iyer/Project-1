@@ -37,6 +37,7 @@ const circle1 = L.circle([1.304987, 103.797131], {
 // Load Leaflet Map 
 map.setView([1.290270, 103.851959], 13);
 
+// next up: combine watercolor tileset with label only code
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -59,6 +60,9 @@ const testPopup = L.popup()
     .setLatLng([1.345516, 103.788447])
     .setContent("Standalone popup test at PIE Dog Run!")
     .openOn(map);
+
+
+// next step: add marker clustering
 
 // add clickable functionality for anywhere on the map
 let clickyPopup = L.popup();
