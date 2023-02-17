@@ -62,7 +62,41 @@ const testPopup = L.popup()
     .openOn(map);
 
 
-// next step: add marker clustering
+// next step: add marker clustering. random coords
+function getRandomLatLng(map){
+    const bounds = map.getBounds();
+    const southWest = bounds.getSouthWest();
+    const northEast = bounds.getNorthEast();
+    
+    const latSpan = northEast.lat - southWest.lat;
+    const lngSpan = northEast.lng - southWest.lng;
+
+    const randomLat = Math.random() * latSpan + southWest.lat;
+    const randomLng = Math.random() * lngSpan + southWest.lng;
+
+    return [randomLat, randomLng];
+}
+
+const group1 = L.layerGroup();
+const group2 = L.layerGroup();
+const group3 = L.layerGroup();
+const groupArray = [group1, group2, group3];
+
+for (let i = 0; i < 3; i++){
+    let leafletMarker;
+    for (let j = 0; j < 5; j++){
+        const coordinate = getRandomLatLng(map);
+        leafletMarker = L.marker(coordinate);
+        leafletMarker.bindPopup("Randomly generated marker in loop " + (i+1) + " at inner loop " + (j+1) + " index " + j);
+        leafletMarker.addTo(groupArray[i]);
+    }
+    groupArray[i].addTo(map);
+}
+
+console.log(groupArray);
+
+
+// TODO later leaflet has a function where you can set max bounds so that you can't zoom out of sg
 
 // add clickable functionality for anywhere on the map
 let clickyPopup = L.popup();
