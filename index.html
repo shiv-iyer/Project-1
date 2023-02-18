@@ -16,20 +16,27 @@
         integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 
     <!-- Leaflet Marker Clustering CSS files (after base Leaflet CSS)-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+
+    <!-- Link Google Fonts for custom styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=Montserrat:wght@200;400;600&family=Unbounded&display=swap"
+        rel="stylesheet">
 
     <!-- LINK OWN STYLESHEET OMG I FORGOT -->
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <!-- Begin work on Navbar -->
-    <nav id="navbar" class="navbar navbar-light">
+    <!-- Begin work on Navbar. navbar-expand-lg was what made it expand on lg, before it wasn't -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
         <!-- container to hold the navbar -->
         <div class="container-fluid">
             <!-- branding will be Fluff Finder -->
-            <a class="navbar-brand" href="#">Fluff Finder</a>
+            <a id="fluffFinderHeader" class="navbar-brand" href="#">Fluff Finder</a>
             <!-- didn't work before the button toggler, try to add it now -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarContent">
                 <span class="navbar-toggler-icon"></span>

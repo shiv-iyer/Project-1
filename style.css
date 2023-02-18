@@ -1,5 +1,14 @@
 #navbar {
-    background-color: #7AC5CD;
+    /* red-orange color to contrast with the map */
+    background-color: #FF4433;
+    /* nice blue #7AC5CD; */
+}
+
+#fluffFinderHeader {
+    font-family: 'Exo 2', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Unbounded', cursive;
+    font-size: large; 
 }
 
 #singaporeMap {
