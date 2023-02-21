@@ -75,7 +75,8 @@ searchButton.addEventListener('click', function(){
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
 async function loadData(url, searchType){
-    const resultLimit = 25;
+    console.log(searchType);
+    const resultLimit = 10;
     const response = await axios.get(url, {
         headers: {
             // Use capital letters for these. Accept is for (idk)
@@ -85,7 +86,7 @@ async function loadData(url, searchType){
         },
         "params":{
             ll: sgLatLong,
-            category: searchType,
+            categories: searchType,
             limit: resultLimit
         }
     });
@@ -93,10 +94,13 @@ async function loadData(url, searchType){
     const queryResults = response.data;
     console.log(queryResults);
 
+    const objectLength = Object.keys(response.data.results).length;
+
     const dogParkGroup = L.layerGroup();
     // the result traverses through from 0 to 49; 50 searches, starts at 0 and goes to limit-1
-    for (let i = 0; i < resultLimit; i++){
-        const queryGeocodes = queryResults.results[i].geocodes.main;
+    for (let i = 0; i < objectLength; i++){
+        let queryGeocodes = queryResults.results[i].geocodes.main;
+        console.log(queryGeocodes.latitude);
         const queryLatLong = String(queryGeocodes.latitude + " , " + queryGeocodes.longitude);
         console.log("For search result #" + (i+1) + ", lat/long: " + queryLatLong);
 
@@ -105,6 +109,9 @@ async function loadData(url, searchType){
         const dogParkMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
         dogParkMarker.bindPopup("This is a marker displaying " + parkName);
         dogParkMarker.addTo(dogParkGroup);
+
+        // flyTo on click
+
     }
 
     dogParkGroup.addTo(map);
