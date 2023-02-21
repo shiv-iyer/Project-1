@@ -30,66 +30,50 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 markerCustomIcon.addTo(map);
 
+// const group1 = L.layerGroup();
+// const group2 = L.layerGroup();
+// const group3 = L.layerGroup();
+// const groupArray = [group1, group2, group3];
 
-// next step: add marker clustering. random coords
-function getRandomLatLng(map){
-    const bounds = map.getBounds();
-    const southWest = bounds.getSouthWest();
-    const northEast = bounds.getNorthEast();
-    
-    const latSpan = northEast.lat - southWest.lat;
-    const lngSpan = northEast.lng - southWest.lng;
+// for (let i = 0; i < 3; i++){
+//     let leafletMarker;
+//     for (let j = 0; j < 5; j++){
+//         const coordinate = getRandomLatLng(map);
+//         leafletMarker = L.marker(coordinate);
+//         leafletMarker.bindPopup("Randomly generated marker in loop " + (i+1) + " at inner loop " + (j+1) + " index " + j);
+//         leafletMarker.addTo(groupArray[i]);
+//     }
+//     groupArray[i].addTo(map);
+// }
 
-    const randomLat = Math.random() * latSpan + southWest.lat;
-    const randomLng = Math.random() * lngSpan + southWest.lng;
-
-    return [randomLat, randomLng];
-}
-
-const group1 = L.layerGroup();
-const group2 = L.layerGroup();
-const group3 = L.layerGroup();
-const groupArray = [group1, group2, group3];
-
-for (let i = 0; i < 3; i++){
-    let leafletMarker;
-    for (let j = 0; j < 5; j++){
-        const coordinate = getRandomLatLng(map);
-        leafletMarker = L.marker(coordinate);
-        leafletMarker.bindPopup("Randomly generated marker in loop " + (i+1) + " at inner loop " + (j+1) + " index " + j);
-        leafletMarker.addTo(groupArray[i]);
-    }
-    groupArray[i].addTo(map);
-}
-
-console.log(groupArray);
+// console.log(groupArray);
 
 // layer control testing
 
-const baseLayer = {
-    'Randomized Marker Group 1': groupArray[0]
-}
+// const baseLayer = {
+//     'Randomized Marker Group 1': groupArray[0]
+// }
 
-const overlays = {
-    'Randomized Marker Group 2': groupArray[1],
-    'Randomized Marker Group 3': groupArray[2]
-}
+// const overlays = {
+//     'Randomized Marker Group 2': groupArray[1],
+//     'Randomized Marker Group 3': groupArray[2]
+// }
 
-L.control.layers(baseLayer, overlays).addTo(map);
+// L.control.layers(baseLayer, overlays).addTo(map);
 
-
-map.on('click', onMapClick);
+const dogParkCategory = 16033;
 
 searchButton.addEventListener('click', function(){
     alert("Hello World");
     const searchValue = document.getElementById("searchValue").value;
-    loadData(fourSquareURL, sgLatLong, "pet cafe");
+    console.log(searchValue);
+    loadData(fourSquareURL, dogParkCategory);
 });
 
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
-async function loadData(url){
+async function loadData(url, category){
     const response = await axios.get(url, {
         headers: {
             // Use capital letters for these. Accept is for (idk)
@@ -99,7 +83,8 @@ async function loadData(url){
         },
         "params":{
             ll: sgLatLong,
-            query: "pet cafe"
+            category: category,
+            limit: 50
         }
     });
 
