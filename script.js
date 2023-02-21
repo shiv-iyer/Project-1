@@ -74,6 +74,7 @@ searchButton.addEventListener('click', function(){
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
 async function loadData(url, category){
+    const resultLimit = 10;
     const response = await axios.get(url, {
         headers: {
             // Use capital letters for these. Accept is for (idk)
@@ -84,9 +85,18 @@ async function loadData(url, category){
         "params":{
             ll: sgLatLong,
             category: category,
-            limit: 50
+            limit: resultLimit
         }
     });
+    // next step: translate the data into readable params
+    const queryResults = response.data;
+    console.log(queryResults);
 
-    console.log(response.data);
+    // the result traverses through from 0 to 49; 50 searches, starts at 0 and goes to limit-1
+    for (let i = 0; i < resultLimit; i++){
+        const queryGeocodes = queryResults.results[i].geocodes.main;
+        const queryLatLong = String(queryGeocodes.latitude + " , " + queryGeocodes.longitude);
+        console.log("For search result #" + i + ", lat/long: " + queryLatLong);
+    }
+
 }
