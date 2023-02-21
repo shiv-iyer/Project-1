@@ -62,19 +62,20 @@ markerCustomIcon.addTo(map);
 // L.control.layers(baseLayer, overlays).addTo(map);
 
 const dogParkCategory = 16033;
+const petCafeCategory = 13063;
 
 searchButton.addEventListener('click', function(){
     alert("Hello World");
     const searchValue = document.getElementById("searchValue").value;
     console.log(searchValue);
-    loadData(fourSquareURL, dogParkCategory);
+    loadData(fourSquareURL, petCafeCategory);
 });
 
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
-async function loadData(url, category){
-    const resultLimit = 10;
+async function loadData(url, searchType){
+    const resultLimit = 25;
     const response = await axios.get(url, {
         headers: {
             // Use capital letters for these. Accept is for (idk)
@@ -84,7 +85,7 @@ async function loadData(url, category){
         },
         "params":{
             ll: sgLatLong,
-            category: category,
+            category: searchType,
             limit: resultLimit
         }
     });
@@ -92,11 +93,20 @@ async function loadData(url, category){
     const queryResults = response.data;
     console.log(queryResults);
 
+    const dogParkGroup = L.layerGroup();
     // the result traverses through from 0 to 49; 50 searches, starts at 0 and goes to limit-1
     for (let i = 0; i < resultLimit; i++){
         const queryGeocodes = queryResults.results[i].geocodes.main;
         const queryLatLong = String(queryGeocodes.latitude + " , " + queryGeocodes.longitude);
-        console.log("For search result #" + i + ", lat/long: " + queryLatLong);
+        console.log("For search result #" + (i+1) + ", lat/long: " + queryLatLong);
+
+        // next up, add markers
+        const parkName = queryResults.results[i].name;
+        const dogParkMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
+        dogParkMarker.bindPopup("This is a marker displaying " + parkName);
+        dogParkMarker.addTo(dogParkGroup);
     }
+
+    dogParkGroup.addTo(map);
 
 }
