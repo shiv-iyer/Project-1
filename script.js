@@ -76,7 +76,7 @@ searchButton.addEventListener('click', function(){
 // add back: latLong and searchValue in the params
 async function loadData(url, searchType){
     console.log(searchType);
-    const resultLimit = 10;
+    const resultLimit = 25;
     const response = await axios.get(url, {
         headers: {
             // Use capital letters for these. Accept is for (idk)
@@ -94,11 +94,13 @@ async function loadData(url, searchType){
     const queryResults = response.data;
     console.log(queryResults);
 
-    const objectLength = Object.keys(response.data.results).length;
+    // get the amount of total search results; that way, we can plot a marker for each one.
+    // just response.data only has a length of 2, so we need to get through to results to see how many results we have.
+    const searchResultsLength = Object.keys(response.data.results).length;
 
     const dogParkGroup = L.layerGroup();
-    // the result traverses through from 0 to 49; 50 searches, starts at 0 and goes to limit-1
-    for (let i = 0; i < objectLength; i++){
+    // traverse through from 0 to the total amount of search results.
+    for (let i = 0; i < searchResultsLength; i++){
         let queryGeocodes = queryResults.results[i].geocodes.main;
         console.log(queryGeocodes.latitude);
         const queryLatLong = String(queryGeocodes.latitude + " , " + queryGeocodes.longitude);
@@ -110,7 +112,12 @@ async function loadData(url, searchType){
         dogParkMarker.bindPopup("This is a marker displaying " + parkName);
         dogParkMarker.addTo(dogParkGroup);
 
-        // flyTo on click
+        // flyTo the marker on click
+        dogParkMarker.addEventListener('click', function() {
+            map.flyTo([queryGeocodes.latitude, queryGeocodes.longitude], 17);
+        })
+
+        // very nice!
 
     }
 
