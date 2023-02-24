@@ -34,11 +34,20 @@ const dogParkCategory = 16033;
 const petCafeCategory = 13063;
 
 searchButton.addEventListener('click', function(){
-    alert("Hello World");
-    const searchValue = document.getElementById("searchValue").value;
-    console.log(searchValue);
+    alert("Button was clicked");
+    getSearchValue();
     loadData(fourSquareURL, petCafeCategory);
 });
+
+// function to get search values and return the type
+function getSearchValue(){
+    const searchText = document.getElementById("#searchValue").value;
+    if (searchText.length == 0){
+        console.log("Empty search");
+    } else {
+        console.log("Search text: " + searchText);
+    }
+}
 
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
