@@ -41,12 +41,15 @@ searchButton.addEventListener('click', function(){
 
 // function to get search values and return the type
 function getSearchValue(){
-    const searchText = document.getElementById("#searchValue").value;
+    let search;
+    // REMEMBER for getelementbyid you don't need to include the hashtag, it's alraedy getting by id.
+    const searchText = document.getElementById("btnSearch").value;
     if (searchText.length == 0){
-        console.log("Empty search");
+        search = "Empty search";
     } else {
-        console.log("Search text: " + searchText);
+        search = "Search text: " + searchText;
     }
+    console.log(search);
 }
 
 // async function to load the data from axios
