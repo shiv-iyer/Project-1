@@ -37,6 +37,43 @@ searchButton.addEventListener('click', function(){
     alert("Button was clicked");
     getSearchValue();
     loadData(fourSquareURL, petCafeCategory);
+
+
+    // haikal geolocation: basically just getting the user's current location
+    // first time: they will ask you
+    // first step: map.locate
+    // second step:
+    // empty string for current location first
+    // currentL = "";
+    // // map.locate sends you to the user's current location
+    // map.locate({  setView: true, maxZoom: 16  });
+    // // on location found is a leaflet function, gets from event e
+    // function onLocationFound(e){
+    //     // extract the data from e, e is an object with latlng inside
+    //     currentL += e.latlng.lat + "," + e.latlng.lng;
+    //     const marker = L.marker([e.latlng], {icon: markerIcon}).addTo(map);
+    //     console.log(currentL);
+    // }
+
+    // // this just 
+    // map.on('locationfound', onLocationFound);
+
+
+    map.locate({setView: true, maxZoom: 16});
+
+    function onLocationFound(e) {
+        var radius = e.accuracy;
+    
+        L.marker(e.latlng).addTo(map)
+            .bindPopup("You are within " + radius + " meters from this point").openPopup();
+    
+        L.circle(e.latlng, radius).addTo(map);
+    }
+    
+    map.on('locationfound', onLocationFound);
+
+    console.log("reached after map.locate");
+
 });
 
 // function to get search values and return the type
