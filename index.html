@@ -37,9 +37,11 @@
         <div class="container-fluid">
             <!-- branding will be Fluff Finder -->
             <a id="fluffFinderHeader" class="navbar-brand" href="#">Fluff Finder</a>
-            <!-- didn't work before the button toggler, try to add it now -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarContent">
+            <!-- didn't work before the button toggler, try to add it now, REMEMBER HASHTAGS FOR ID -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle collapsible navigation menu">
                 <span class="navbar-toggler-icon"></span>
+
             </button>
             <!-- Navbar items will be within another div -->
             <div id="navbarContent" class="collapse navbar-collapse">
