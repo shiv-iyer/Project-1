@@ -35,13 +35,14 @@ searchButton.addEventListener('click', function(){
     }
 
     console.log(searchCategory);
+    loadData(fourSquareURL, searchCategory);
 });
 
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
 async function loadData(url, searchType){
-    console.log(searchType);
+    console.log("Search category: " + searchType);
     const resultLimit = 25;
     const response = await axios.get(url, {
         headers: {
@@ -61,31 +62,31 @@ async function loadData(url, searchType){
     const queryResults = response.data;
     console.log(queryResults);
 
-    // get the amount of total search results; that way, we can plot a marker for each one.
-    // just response.data only has a length of 2, so we need to get through to results to see how many results we have.
-    const searchResultsLength = Object.keys(response.data.results).length;
+    // // get the amount of total search results; that way, we can plot a marker for each one.
+    // // just response.data only has a length of 2, so we need to get through to results to see how many results we have.
+    // const searchResultsLength = Object.keys(response.data.results).length;
 
-    const dogParkGroup = L.layerGroup();
-    // traverse through from 0 to the total amount of search results.
-    for (let i = 0; i < searchResultsLength; i++){
-        let queryGeocodes = queryResults.results[i].geocodes.main;
-        console.log(queryGeocodes.latitude);
-        const queryLatLong = String(queryGeocodes.latitude + " , " + queryGeocodes.longitude);
-        console.log("For search result #" + (i+1) + ", lat/long: " + queryLatLong);
+    // const dogParkGroup = L.layerGroup();
+    // // traverse through from 0 to the total amount of search results.
+    // for (let i = 0; i < searchResultsLength; i++){
+    //     let queryGeocodes = queryResults.results[i].geocodes.main;
+    //     console.log(queryGeocodes.latitude);
+    //     const queryLatLong = String(queryGeocodes.latitude + " , " + queryGeocodes.longitude);
+    //     console.log("For search result #" + (i+1) + ", lat/long: " + queryLatLong);
 
-        // next up, add markers
-        const parkName = queryResults.results[i].name;
-        const dogParkMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
-        dogParkMarker.bindPopup("This is a marker displaying " + parkName);
-        dogParkMarker.addTo(dogParkGroup);
+    //     // next up, add markers
+    //     const parkName = queryResults.results[i].name;
+    //     const dogParkMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
+    //     dogParkMarker.bindPopup("This is a marker displaying " + parkName);
+    //     dogParkMarker.addTo(dogParkGroup);
 
-        // flyTo the marker on click
-        dogParkMarker.addEventListener('click', function() {
-            map.flyTo([queryGeocodes.latitude, queryGeocodes.longitude], 17);
-        })
+    //     // flyTo the marker on click
+    //     dogParkMarker.addEventListener('click', function() {
+    //         map.flyTo([queryGeocodes.latitude, queryGeocodes.longitude], 17);
+    //     })
 
-        // very nice!
+    //     // very nice!
 
-    }
-    dogParkGroup.addTo(map);
+    // }
+    // dogParkGroup.addTo(map);
 }
