@@ -89,6 +89,10 @@ function getSearchValue(){
     console.log(search);
 }
 
+// dropdown: event listener is change, getting the value of the dropdown
+// 
+
+
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
