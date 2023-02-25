@@ -15,11 +15,25 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-// create individual marker cluster
-const petCafeLayer = L.markerClusterGroup().addTo(map);
+// create individual marker cluster groups. can 
+
+// customize html of the marker cluster display
+const petCafeLayer = L.markerClusterGroup({
+    iconCreateFunction: function(cluster){
+        return L.divIcon({html: '<b>' + cluster.getChildCount() + '</b>'});
+    }
+}).addTo(map);
+
 const petGroomingLayer = L.markerClusterGroup().addTo(map);
 const petSuppliesLayer = L.markerClusterGroup().addTo(map);
 const dogParksLayer = L.markerClusterGroup().addTo(map);
+
+// controller for layer groups
+const layerController = L.control.layers(
+    // base layers can be blank
+    {},
+    {petCafeLayer, petGroomingLayer, petSuppliesLayer, dogParksLayer}
+).addTo(map);
 
 // Event Listener for search button: on click
 searchButton.addEventListener('click', function(){
