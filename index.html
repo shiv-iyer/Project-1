@@ -38,6 +38,7 @@
             <!-- branding will be Fluff Finder -->
             <a id="fluffFinderHeader" class="navbar-brand" href="#">Fluff Finder</a>
             <!-- didn't work before the button toggler, try to add it now, REMEMBER HASHTAGS FOR ID -->
+            <!-- aria tags are for accessibility purposes. -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
             aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle collapsible navigation menu">
                 <span class="navbar-toggler-icon"></span>
@@ -61,7 +62,18 @@
     <div id="mainContainer" class="container border border-info mt-3">
         <!-- nest this in a div and add some spacing, can worry about mobile responsive later (?)-->
         <div id="headerContainer" class="mt-3 ms-3 mb-3">
-            <input type="text" id="searchValue" />
+            <!-- OK WORRY ABOUT ROW / UIUX LATER-->
+
+            <!-- label for the category selection  -->
+            <label for="categorySelection">Select Category</label>
+            <!-- Bootstrap 'select' element to select categories -->
+            <select type="text" class="form-control">
+                <option>Pet Cafes</option>
+                <option>Pet Grooming Services</option>
+                <option>Pet Supplies Stores</option>
+                <option>Dog Parks</option>
+            </select>
+
             <button type="button" id="btnSearch" class="btn btn-dark">Search For Places</button>
         </div>
         <div id="singaporeMap">
