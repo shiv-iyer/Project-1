@@ -30,15 +30,41 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 markerCustomIcon.addTo(map);
 
+const fourSquareCategories = {
+    petcafe: 11134,
+    petgrooming: 11134,
+    petsupplies: 17110,
+    dogpark: 16033
+}
+
 const dogParkCategory = 16033;
 const petCafeCategory = 13063;
 
+// Event Listener for search button: on click
 searchButton.addEventListener('click', function(){
     const selectedCategory = document.getElementById("categoryForm").value;
+    let searchCategory;
     alert("Category Form value: " + selectedCategory);
 
+    // convert the category form value into functional fourSquare categories
+    switch(selectedCategory){
+        case 'pet-cafe': searchCategory = 13063;
+            break;
+        case 'pet-grooming': searchCategory = 11134; 
+            break;
+        case 'pet-supplies': searchCategory = 17110;
+            break;
+        case 'dog-parks': searchCategory = 16033;
+            break;
+        // maybe don't need default? since it is only 1 of 4 options rn
+    }
 
-    //getSearchValue();
+    console.log(searchCategory);
+
+    //loadData(fourSquareURL, selectedCategory);
+
+
+
     //loadData(fourSquareURL, petCafeCategory);
 
 
@@ -62,35 +88,22 @@ searchButton.addEventListener('click', function(){
     // map.on('locationfound', onLocationFound);
 
 
-    map.locate({setView: true, maxZoom: 16});
+    // map.locate({setView: true, maxZoom: 16});
 
-    function onLocationFound(e) {
-        var radius = e.accuracy;
+    // function onLocationFound(e) {
+    //     var radius = e.accuracy;
     
-        L.marker(e.latlng).addTo(map)
-            .bindPopup("You are within " + radius + " meters from this point").openPopup();
+    //     L.marker(e.latlng).addTo(map)
+    //         .bindPopup("You are within " + radius + " meters from this point").openPopup();
     
-        L.circle(e.latlng, radius).addTo(map);
-    }
+    //     L.circle(e.latlng, radius).addTo(map);
+    // }
     
-    map.on('locationfound', onLocationFound);
+    // map.on('locationfound', onLocationFound);
 
-    console.log("reached after map.locate");
+    // console.log("reached after map.locate");
 
 });
-
-// function to get search values and return the type
-function getSearchValue(){
-    let search;
-    // REMEMBER for getelementbyid you don't need to include the hashtag, it's alraedy getting by id.
-    const searchText = document.getElementById("btnSearch").value;
-    if (searchText.length == 0){
-        search = "Empty search";
-    } else {
-        search = "Search text: " + searchText;
-    }
-    console.log(search);
-}
 
 // dropdown: event listener is change, getting the value of the dropdown
 // 
