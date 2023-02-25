@@ -7,18 +7,6 @@ const FOURSQUARE_API_KEY = "fsq3jMP2VLbUVepHLNvSdnHHmMc7KnQT7vAYp7wRcl+DPvU=";
 const sgLatLong = "1.290270,103.851959";
 const searchButton = document.getElementById("btnSearch");
 
-// add marker1 with any coordinates, will use Bishan Dog Park
-const marker1 = L.marker([1.362372, 103.84859]);
-
-const markerIcon = L.icon({
-    iconUrl: '/images/pawbase-border.png',
-
-    iconSize:     [50, 50], // size in pixels
-});
-
-const markerCustomIcon = L.marker([1.277601, 103.841688], {icon: markerIcon});
-
-
 // Load Leaflet Map 
 map.setView([1.290270, 103.851959], 13);
 
@@ -26,19 +14,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-
-
-markerCustomIcon.addTo(map);
-
-const fourSquareCategories = {
-    petcafe: 11134,
-    petgrooming: 11134,
-    petsupplies: 17110,
-    dogpark: 16033
-}
-
-const dogParkCategory = 16033;
-const petCafeCategory = 13063;
 
 // Event Listener for search button: on click
 searchButton.addEventListener('click', function(){
@@ -60,54 +35,7 @@ searchButton.addEventListener('click', function(){
     }
 
     console.log(searchCategory);
-
-    //loadData(fourSquareURL, selectedCategory);
-
-
-
-    //loadData(fourSquareURL, petCafeCategory);
-
-
-    // haikal geolocation: basically just getting the user's current location
-    // first time: they will ask you
-    // first step: map.locate
-    // second step:
-    // empty string for current location first
-    // currentL = "";
-    // // map.locate sends you to the user's current location
-    // map.locate({  setView: true, maxZoom: 16  });
-    // // on location found is a leaflet function, gets from event e
-    // function onLocationFound(e){
-    //     // extract the data from e, e is an object with latlng inside
-    //     currentL += e.latlng.lat + "," + e.latlng.lng;
-    //     const marker = L.marker([e.latlng], {icon: markerIcon}).addTo(map);
-    //     console.log(currentL);
-    // }
-
-    // // this just 
-    // map.on('locationfound', onLocationFound);
-
-
-    // map.locate({setView: true, maxZoom: 16});
-
-    // function onLocationFound(e) {
-    //     var radius = e.accuracy;
-    
-    //     L.marker(e.latlng).addTo(map)
-    //         .bindPopup("You are within " + radius + " meters from this point").openPopup();
-    
-    //     L.circle(e.latlng, radius).addTo(map);
-    // }
-    
-    // map.on('locationfound', onLocationFound);
-
-    // console.log("reached after map.locate");
-
 });
-
-// dropdown: event listener is change, getting the value of the dropdown
-// 
-
 
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
@@ -117,11 +45,12 @@ async function loadData(url, searchType){
     const resultLimit = 25;
     const response = await axios.get(url, {
         headers: {
-            // Use capital letters for these. Accept is for (idk)
+            // Use capital letters for these headers
             Accept: "application/json",
-            // Authorization is for using your own API key to access
+            // Authorization is for using your own API key to access FourSquare
             Authorization: FOURSQUARE_API_KEY
         },
+        // parameters for FourSquare search
         "params":{
             ll: sgLatLong,
             categories: searchType,
@@ -158,7 +87,5 @@ async function loadData(url, searchType){
         // very nice!
 
     }
-
     dogParkGroup.addTo(map);
-
 }
