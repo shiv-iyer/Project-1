@@ -47,7 +47,7 @@ const layerController = L.control.layers(
 
 // Event Listener for search button: on click
 searchButton.addEventListener('click', function(){
-    const selectedCategory = document.getElementById("categoryForm").value;
+    const selectedCategory = document.querySelector("#categoryForm").value;
     let searchCategory;
     alert("Category Form value: " + selectedCategory);
 
