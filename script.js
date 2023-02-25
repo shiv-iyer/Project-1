@@ -67,6 +67,7 @@ async function loadData(url, searchType){
     // get the total amount of search results, and plot as many amount of markers.
     // fourSquare's results is an array of objects. Use Object.keys to get as many keys to know the length
     const searchResultsLength = Object.keys(response.data.results).length;
+    console.log(searchResultsLength);
 
     const searchGroup = L.layerGroup();
     // traverse through from 0 to the amount of search results
@@ -74,19 +75,29 @@ async function loadData(url, searchType){
         // obtain geocodes: retrieve the coordinates of each result
         const queryGeocodes = queryResults.results[i].geocodes.main;
         console.log(queryGeocodes);
+
+        // queryGeocodes returns an object with keys that store latitude and longitude.
+        // seeing as Leaflet markers require an array of coords, store as that first, hard code it
+        // there has to be an elegant way to make it from an object into an array look into later!!!
+        const resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
+        resultMarker.bindPopup("This is a marker displaying " + queryResults.results[i].name);
+
+        // can maybe store results as a nicer-formatted object later, JUST make it functional first
+
+        // add marker to the layer group
+        resultMarker.addTo(searchGroup);
+
+        console.log("Loop run through #" + i);
+        // only runs through 10 times hmm.
     }
+
+    searchGroup.addTo(map);
 
     // // get the amount of total search results; that way, we can plot a marker for each one.
     // // just response.data only has a length of 2, so we need to get through to results to see how many results we have.
     // const searchResultsLength = Object.keys(response.data.results).length;
 
     // const dogParkGroup = L.layerGroup();
-    // // traverse through from 0 to the total amount of search results.
-    // for (let i = 0; i < searchResultsLength; i++){
-    //     let queryGeocodes = queryResults.results[i].geocodes.main;
-    //     console.log(queryGeocodes.latitude);
-    //     const queryLatLong = String(queryGeocodes.latitude + " , " + queryGeocodes.longitude);
-    //     console.log("For search result #" + (i+1) + ", lat/long: " + queryLatLong);
 
     //     // next up, add markers
     //     const parkName = queryResults.results[i].name;
