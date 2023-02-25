@@ -67,11 +67,11 @@
             <!-- label for the category selection  -->
             <label for="categorySelection">Select Category</label>
             <!-- Bootstrap 'select' element to select categories -->
-            <select type="text" class="form-control">
-                <option>Pet Cafes</option>
-                <option>Pet Grooming Services</option>
-                <option>Pet Supplies Stores</option>
-                <option>Dog Parks</option>
+            <select id="categoryForm" type="text" class="form-control" aria-label="Category selection form">
+                <option value="pet-cafe" selected>Pet Cafes</option>
+                <option value="pet-grooming">Pet Grooming Services</option>
+                <option value="pet-supplies">Pet Supplies Stores</option>
+                <option value="dog-parks">Dog Parks</option>
             </select>
 
             <button type="button" id="btnSearch" class="btn btn-dark">Search For Places</button>

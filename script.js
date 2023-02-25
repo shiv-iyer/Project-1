@@ -34,9 +34,12 @@ const dogParkCategory = 16033;
 const petCafeCategory = 13063;
 
 searchButton.addEventListener('click', function(){
-    alert("Button was clicked");
-    getSearchValue();
-    loadData(fourSquareURL, petCafeCategory);
+    const selectedCategory = document.getElementById("categoryForm").value;
+    alert("Category Form value: " + selectedCategory);
+
+
+    //getSearchValue();
+    //loadData(fourSquareURL, petCafeCategory);
 
 
     // haikal geolocation: basically just getting the user's current location
