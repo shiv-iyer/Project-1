@@ -15,9 +15,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-// create individual marker cluster groups. can 
+// create individual marker cluster groups for each layer to be displayed.
 
-// customize html of the marker cluster display
+// customize html of the marker cluster display... WIP
 const petCafeLayer = L.markerClusterGroup({
     iconCreateFunction: function(cluster){
         return L.divIcon({html: '<b>' + cluster.getChildCount() + '</b>'});
@@ -111,26 +111,6 @@ async function loadData(url, searchType, layerType){
         // add marker to the layer group
         resultMarker.addTo(layerType);
     }
-
-    // // get the amount of total search results; that way, we can plot a marker for each one.
-    // // just response.data only has a length of 2, so we need to get through to results to see how many results we have.
-    // const searchResultsLength = Object.keys(response.data.results).length;
-
-    // const dogParkGroup = L.layerGroup();
-
-    //     // next up, add markers
-    //     const parkName = queryResults.results[i].name;
-    //     const dogParkMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
-    //     dogParkMarker.bindPopup("This is a marker displaying " + parkName);
-    //     dogParkMarker.addTo(dogParkGroup);
-
-    //     // flyTo the marker on click
-    //     dogParkMarker.addEventListener('click', function() {
-    //         map.flyTo([queryGeocodes.latitude, queryGeocodes.longitude], 17);
-    //     })
-
-    //     // very nice!
-
-    // }
-    // dogParkGroup.addTo(map);
 }
+
+// TODO: refactor my functions to be individual (not all part of the loadData function)
