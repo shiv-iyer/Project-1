@@ -40,8 +40,9 @@ L.layerGroup()
 // controller for layer groups
 const layerController = L.control.layers(
     // base layers can be blank
-    {petCafeLayer},
-    {petGroomingLayer, petSuppliesLayer, dogParksLayer}
+    {},
+    // overlays
+    {petCafeLayer, petGroomingLayer, petSuppliesLayer, dogParksLayer}
 ).addTo(map);
 
 // Event Listener for search button: on click
