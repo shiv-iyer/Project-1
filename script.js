@@ -15,6 +15,12 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+// create individual marker cluster
+const petCafeLayer = L.markerClusterGroup().addTo(map);
+const petGroomingLayer = L.markerClusterGroup().addTo(map);
+const petSuppliesLayer = L.markerClusterGroup().addTo(map);
+const dogParksLayer = L.markerClusterGroup().addTo(map);
+
 // Event Listener for search button: on click
 searchButton.addEventListener('click', function(){
     const selectedCategory = document.getElementById("categoryForm").value;
@@ -22,26 +28,31 @@ searchButton.addEventListener('click', function(){
     alert("Category Form value: " + selectedCategory);
 
     // convert the category form value into functional fourSquare categories
+    let searchLayer;
     switch(selectedCategory){
         case 'pet-cafe': searchCategory = 13063;
+                         searchLayer = petCafeLayer;
             break;
         case 'pet-grooming': searchCategory = 11134; 
+                             searchLayer = petGroomingLayer;
             break;
         case 'pet-supplies': searchCategory = 17110;
+                            searchLayer = petSuppliesLayer;
             break;
         case 'dog-parks': searchCategory = 16033;
+                          searchLayer = dogParksLayer;
             break;
         // maybe don't need default? since it is only 1 of 4 options rn
     }
 
     console.log(searchCategory);
-    loadData(fourSquareURL, searchCategory);
+    loadData(fourSquareURL, searchCategory, searchLayer);
 });
 
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
-async function loadData(url, searchType){
+async function loadData(url, searchType, layerType){
     console.log("Search category: " + searchType);
     const resultLimit = 25;
     const response = await axios.get(url, {
@@ -69,7 +80,6 @@ async function loadData(url, searchType){
     const searchResultsLength = Object.keys(response.data.results).length;
     console.log(searchResultsLength);
 
-    const searchGroup = L.layerGroup();
     // traverse through from 0 to the amount of search results
     for (let i = 0; i < searchResultsLength; i++){
         // obtain geocodes: retrieve the coordinates of each result
@@ -85,13 +95,8 @@ async function loadData(url, searchType){
         // can maybe store results as a nicer-formatted object later, JUST make it functional first
 
         // add marker to the layer group
-        resultMarker.addTo(searchGroup);
-
-        console.log("Loop run through #" + i);
-        // only runs through 10 times hmm.
+        resultMarker.addTo(layerType);
     }
-
-    searchGroup.addTo(map);
 
     // // get the amount of total search results; that way, we can plot a marker for each one.
     // // just response.data only has a length of 2, so we need to get through to results to see how many results we have.
