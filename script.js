@@ -7,6 +7,13 @@ const FOURSQUARE_API_KEY = "fsq3jMP2VLbUVepHLNvSdnHHmMc7KnQT7vAYp7wRcl+DPvU=";
 const sgLatLong = "1.290270,103.851959";
 const searchButton = document.getElementById("btnSearch");
 
+// Custom Leaflet marker icon for dog parks, it's a paw
+const dogParkIcon = L.icon({
+    // worry about other variables / options later, first, establish basic functionality for one category
+    iconUrl: '/images/pawbase-border.png',
+    iconSize: [35, 35]
+ });
+ 
 // Load Leaflet Map 
 map.setView([1.290270, 103.851959], 13);
 
@@ -28,11 +35,13 @@ const petGroomingLayer = L.markerClusterGroup().addTo(map);
 const petSuppliesLayer = L.markerClusterGroup().addTo(map);
 const dogParksLayer = L.markerClusterGroup().addTo(map);
 
+L.layerGroup()
+
 // controller for layer groups
 const layerController = L.control.layers(
     // base layers can be blank
-    {},
-    {petCafeLayer, petGroomingLayer, petSuppliesLayer, dogParksLayer}
+    {petCafeLayer},
+    {petGroomingLayer, petSuppliesLayer, dogParksLayer}
 ).addTo(map);
 
 // Event Listener for search button: on click
@@ -103,10 +112,19 @@ async function loadData(url, searchType, layerType){
         // queryGeocodes returns an object with keys that store latitude and longitude.
         // seeing as Leaflet markers require an array of coords, store as that first, hard code it
         // there has to be an elegant way to make it from an object into an array look into later!!!
-        const resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
-        resultMarker.bindPopup("This is a marker displaying " + queryResults.results[i].name);
 
-        // can maybe store results as a nicer-formatted object later, JUST make it functional first
+        console.log(layerType == dogParksLayer);
+
+       // if layer type = dog parks layer, add custom icon, else normal
+
+       let resultMarker;
+       if (layerType == dogParksLayer){
+           resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
+       } else {
+           resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
+       }
+
+        resultMarker.bindPopup("This is a marker displaying " + queryResults.results[i].name);
 
         // add marker to the layer group
         resultMarker.addTo(layerType);
