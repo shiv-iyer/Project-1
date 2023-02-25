@@ -58,9 +58,23 @@ async function loadData(url, searchType){
             limit: resultLimit
         }
     });
-    // next step: translate the data into readable params
+
+    // make sure queryResults gets logged out successfully first
     const queryResults = response.data;
     console.log(queryResults);
+
+    // next step: translate the data into functional params for marker display
+    // get the total amount of search results, and plot as many amount of markers.
+    // fourSquare's results is an array of objects. Use Object.keys to get as many keys to know the length
+    const searchResultsLength = Object.keys(response.data.results).length;
+
+    const searchGroup = L.layerGroup();
+    // traverse through from 0 to the amount of search results
+    for (let i = 0; i < searchResultsLength; i++){
+        // obtain geocodes: retrieve the coordinates of each result
+        const queryGeocodes = queryResults.results[i].geocodes.main;
+        console.log(queryGeocodes);
+    }
 
     // // get the amount of total search results; that way, we can plot a marker for each one.
     // // just response.data only has a length of 2, so we need to get through to results to see how many results we have.
