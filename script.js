@@ -25,6 +25,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // create individual marker cluster groups for each layer to be displayed.
 
 // customize html of the marker cluster display... WIP
+// from Marker Cluster documentation
 const petCafeLayer = L.markerClusterGroup({
     iconCreateFunction: function(cluster){
         return L.divIcon({html: '<b>' + cluster.getChildCount() + '</b>'});
@@ -70,15 +71,30 @@ searchButton.addEventListener('click', function(){
     }
 
     console.log(searchCategory);
+
+    // now, retrieve the data from the results form
+    const results = document.getElementById("resultLimitForm").value;
+    console.log(results);
+
+    // type of results?
+    console.log(typeof results);
+
+    // if results form is left blank, remind user to input
+
+    // else, perform load data functions
+
+
+
     loadData(fourSquareURL, searchCategory, searchLayer);
 });
+
 
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
 async function loadData(url, searchType, layerType){
     console.log("Search category: " + searchType);
-    const resultLimit = 25;
+    const resultLimit = 50;
     const response = await axios.get(url, {
         headers: {
             // Use capital letters for these headers
