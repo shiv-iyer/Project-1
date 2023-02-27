@@ -67,19 +67,49 @@
             <!-- label for the category selection  -->
             <label for="categorySelection">Select Category</label>
 
+
+            <!-- for styling of the two columns-->
+            <!-- <div class="col-sm-8 col-md-9"> -->
+            <!-- <div class="col-sm-4 col-md-3"> -->
+
             <div class="row mb-3">
-                <div class="col-sm-8 col-md-9">
+                <div>
                     <!-- Bootstrap 'select' element to select categories -->
-                    <select id="categoryForm" type="text" class="form-control col-9" aria-label="Category selection form">
+                    <select id="categoryForm" type="text" class="form-control mb-3" aria-label="Category selection form">
                         <option value="pet-cafe" selected>Pet Cafes</option>
                         <option value="pet-grooming">Pet Grooming Services</option>
                         <option value="pet-supplies">Pet Supplies Stores</option>
                         <option value="dog-parks">Dog Parks</option>
                     </select>
                 </div>
-                <div class="col-sm-4 col-md-3">
-                    <!-- form for search result limit (1 - 50)-->
-                    <input type="searchResultLimit" class="form-control" id="resultLimitForm" placeholder="# of Results"/>
+                <div>
+
+                    <div id="resultSearchGroup" class="d-flex flex-row">
+                        <div id="radioGroup" class="d-flex flex-row">
+                            <!-- the form-check class is a series of classes for improving Bootstrap checkboxes and radios -->
+                            <div class="form-check space">
+                                <input class="form-check-input radios" type="radio" name="radioGroup" id="results10Radio" value="10">
+                                <label class="form-check-label" for="results10Radio">
+                                10
+                                </label>
+                            </div>
+                            <div class="form-check space">
+                                <input class="form-check-input radios" type="radio" name="radioGroup" id="flexRadioDefault2" value="25">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                25
+                                </label>
+                            </div>
+                            <div class="form-check space">
+                                <input class="form-check-input radios" type="radio" name="radioGroup" id="flexRadioDefault2" value="50">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                50
+                                </label>
+                            </div>
+                        </div>
+                        <div id="textInput">
+                            <input type="text" class="form-control" id="resultLimitForm" placeholder="Custom #">
+                        </div>
+                    </div>
                 </div>
             </div>
 

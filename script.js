@@ -7,6 +7,9 @@ const FOURSQUARE_API_KEY = "fsq3jMP2VLbUVepHLNvSdnHHmMc7KnQT7vAYp7wRcl+DPvU=";
 const sgLatLong = "1.290270,103.851959";
 const searchButton = document.getElementById("btnSearch");
 
+let resultForm;
+let radioButtons;
+
 // Custom Leaflet marker icon for dog parks, it's a paw
 const dogParkIcon = L.icon({
     // worry about other variables / options later, first, establish basic functionality for one category
@@ -72,16 +75,42 @@ searchButton.addEventListener('click', function(){
 
     console.log(searchCategory);
 
-    // now, retrieve the data from the results form
-    const radioButtons = document.querySelectorAll(".radios");
+
+    // select all of the radio buttons
+
+    let resultLimit;
 
     // forEach to traverse through radioButtons and get the value
+    // MAKE TERNARY LATER
     radioButtons.forEach(radioButton => {
         if (radioButton.checked)
-            console.log(radioButton.value);
+            resultLimit = radioButton.value;
+        else
+            numUncheckedRadios++;
     });
 
-    console.log(radioButtons);
+    // first if everything is blank
+    if (!resultForm.value && numUncheckedRadios == 3){
+        alert("Nothing is selected!");
+    } else if (numUncheckedRadios == 3) {
+        if (isNaN(Number(resultForm.value))){
+            alert("You did not input a valid number, please try again!");
+            // now, ensure that the user inputted results from 10 to 50 only
+        } else if (resultForm.value < 10 || resultForm.value > 50){
+            alert("You need to input a number from 10-50!");
+        } else {
+            resultLimit = resultForm.value;
+        }
+    }
+
+    // now, retrieve the data from the results form
+
+    // type of results is a string
+    console.log("Result limit: " + resultLimit);
+
+    // if results form is left blank, perform validation and avoid calling any functions
+    // can refactor this into a switch later
+    
 
     //loadData(fourSquareURL, searchCategory, searchLayer, resultLimit);
     }
@@ -143,6 +172,31 @@ async function loadData(url, searchType, layerType, resultLimit){
         // add marker to the layer group
         resultMarker.addTo(layerType);
     }
+}
+
+window.addEventListener("DOMContentLoaded", function(){
+    radioButtons = document.querySelectorAll(".radios");
+    resultForm = document.getElementById("resultLimitForm");
+    console.log(resultForm);
+
+    resultForm.addEventListener('input', function(){
+        console.log("hi");
+        if (checkRadios() < 3){
+            radioButtons.forEach(radioButton => {
+                if (radioButton.checked)
+                    radioButton.checked = false;
+            });
+        }
+    });
+});
+
+function checkRadios(){
+    let numUncheckedRadios = 0;
+    radioButtons.forEach(radioButton => {
+        if (!radioButton.checked)
+            numUncheckedRadios++;
+    });
+    return numUncheckedRadios;
 }
 
 // TODO: refactor my functions to be individual (not all part of the loadData function)
