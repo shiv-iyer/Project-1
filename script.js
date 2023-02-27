@@ -80,23 +80,21 @@ searchButton.addEventListener('click', function(){
 
     // if results form is left blank, perform validation and avoid calling any functions
     // can refactor this into a switch later
-    if (results.length == 0)
+    if (results.length == 0) {
         console.log("results was left blank!");
-    // get results to be NaN to validate that too
-    // Number(results) == NaN did not work, so using the isNan() function
-    console.log("if results is NaN" + isNaN(Number(results)));
 
-
-
-    console.log("Number results: " + Number(results));
-    // else if (Number(results) == NaN) {
-    //     console.log("results is not a number!");
-    // // else, perform load data functions
-    // } else {
-    //     console.log("not blank and is a number!");
-    //     console.log(results);
-    //     loadData(fourSquareURL, searchCategory, searchLayer);
-    // }
+        // get results to be NaN to validate that too
+        // Number(results) == NaN did not work, so using the isNan() function
+        // console.log("if results is NaN" + isNaN(Number(results)));
+    } else if (isNaN(Number(results))){
+        console.log("You did not input a valid number, please try again!");
+        // now, ensure that the user inputted results from 10 to 50 only
+    } else if (results < 10 || results > 50){
+        console.log("You need to input a number from 10-50!");
+    } else {
+        console.log("All error checks completed, loading the data");
+        loadData(fourSquareURL, searchCategory, searchLayer);
+    }
 
 });
 
