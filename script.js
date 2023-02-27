@@ -50,7 +50,7 @@ const layerController = L.control.layers(
 searchButton.addEventListener('click', function(){
     const selectedCategory = document.querySelector("#categoryForm").value;
     let searchCategory;
-    alert("Category Form value: " + selectedCategory);
+    //alert("Category Form value: " + selectedCategory);
 
     // convert the category form value into functional fourSquare categories
     let searchLayer;
@@ -73,27 +73,28 @@ searchButton.addEventListener('click', function(){
     console.log(searchCategory);
 
     // now, retrieve the data from the results form
-    const results = document.getElementById("resultLimitForm").value;
+    const resultLimit = document.getElementById("resultLimitForm").value;
 
     // type of results is a string
-    console.log(typeof results);
+    console.log(typeof resultLimit);
 
     // if results form is left blank, perform validation and avoid calling any functions
     // can refactor this into a switch later
-    if (results.length == 0) {
-        console.log("results was left blank!");
+    if (resultLimit.length == 0) {
+        alert("results was left blank!");
 
         // get results to be NaN to validate that too
         // Number(results) == NaN did not work, so using the isNan() function
         // console.log("if results is NaN" + isNaN(Number(results)));
-    } else if (isNaN(Number(results))){
-        console.log("You did not input a valid number, please try again!");
+    } else if (isNaN(Number(resultLimit))){
+        alert("You did not input a valid number, please try again!");
         // now, ensure that the user inputted results from 10 to 50 only
-    } else if (results < 10 || results > 50){
-        console.log("You need to input a number from 10-50!");
+    } else if (resultLimit < 10 || resultLimit > 50){
+        alert("You need to input a number from 10-50!");
     } else {
+        // functional search, pass in all the relevant params!
         console.log("All error checks completed, loading the data");
-        loadData(fourSquareURL, searchCategory, searchLayer);
+        loadData(fourSquareURL, searchCategory, searchLayer, resultLimit);
     }
 
 });
@@ -102,9 +103,8 @@ searchButton.addEventListener('click', function(){
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
-async function loadData(url, searchType, layerType){
+async function loadData(url, searchType, layerType, resultLimit){
     console.log("Search category: " + searchType);
-    const resultLimit = 50;
     const response = await axios.get(url, {
         headers: {
             // Use capital letters for these headers
