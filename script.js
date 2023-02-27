@@ -74,12 +74,17 @@ searchButton.addEventListener('click', function(){
 
     // now, retrieve the data from the results form
     const results = document.getElementById("resultLimitForm").value;
-    console.log(results);
 
-    // type of results?
+    // type of results is a string
     console.log(typeof results);
 
     // if results form is left blank, remind user to input
+    if (results.isEmpty()) 
+        console.log("results was left blank!");
+    else {
+        console.log("not blank!");
+        console.log(results);
+    }
 
     // else, perform load data functions
 
