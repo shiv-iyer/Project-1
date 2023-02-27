@@ -25,6 +25,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // create individual marker cluster groups for each layer to be displayed.
 
 // customize html of the marker cluster display... WIP
+// from Marker Cluster documentation
 const petCafeLayer = L.markerClusterGroup({
     iconCreateFunction: function(cluster){
         return L.divIcon({html: '<b>' + cluster.getChildCount() + '</b>'});
@@ -35,18 +36,21 @@ const petGroomingLayer = L.markerClusterGroup().addTo(map);
 const petSuppliesLayer = L.markerClusterGroup().addTo(map);
 const dogParksLayer = L.markerClusterGroup().addTo(map);
 
+L.layerGroup()
+
 // controller for layer groups
 const layerController = L.control.layers(
     // base layers can be blank
     {},
+    // overlays
     {petCafeLayer, petGroomingLayer, petSuppliesLayer, dogParksLayer}
 ).addTo(map);
 
 // Event Listener for search button: on click
 searchButton.addEventListener('click', function(){
-    const selectedCategory = document.getElementById("categoryForm").value;
+    const selectedCategory = document.querySelector("#categoryForm").value;
     let searchCategory;
-    alert("Category Form value: " + selectedCategory);
+    //alert("Category Form value: " + selectedCategory);
 
     // convert the category form value into functional fourSquare categories
     let searchLayer;
@@ -66,15 +70,41 @@ searchButton.addEventListener('click', function(){
         // maybe don't need default? since it is only 1 of 4 options rn
     }
 
-    loadData(fourSquareURL, searchCategory, searchLayer);
+    console.log(searchCategory);
+
+    // now, retrieve the data from the results form
+    const resultLimit = document.getElementById("resultLimitForm").value;
+
+    // type of results is a string
+    console.log(typeof resultLimit);
+
+    // if results form is left blank, perform validation and avoid calling any functions
+    // can refactor this into a switch later
+    if (resultLimit.length == 0) {
+        alert("results was left blank!");
+
+        // get results to be NaN to validate that too
+        // Number(results) == NaN did not work, so using the isNan() function
+        // console.log("if results is NaN" + isNaN(Number(results)));
+    } else if (isNaN(Number(resultLimit))){
+        alert("You did not input a valid number, please try again!");
+        // now, ensure that the user inputted results from 10 to 50 only
+    } else if (resultLimit < 10 || resultLimit > 50){
+        alert("You need to input a number from 10-50!");
+    } else {
+        // functional search, pass in all the relevant params!
+        console.log("All error checks completed, loading the data");
+        loadData(fourSquareURL, searchCategory, searchLayer, resultLimit);
+    }
+
 });
+
 
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
-async function loadData(url, searchType, layerType){
+async function loadData(url, searchType, layerType, resultLimit){
     console.log("Search category: " + searchType);
-    const resultLimit = 25;
     const response = await axios.get(url, {
         headers: {
             // Use capital letters for these headers
@@ -110,18 +140,16 @@ async function loadData(url, searchType, layerType){
 
         console.log(layerType == dogParksLayer);
 
-        // if layer type = dog parks layer, add custom icon, else normal
+       // if layer type = dog parks layer, add custom icon, else normal
 
-        let resultMarker;
-        if (layerType == dogParksLayer){
-            resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
-        } else {
-            resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
-        }
+       let resultMarker;
+       if (layerType == dogParksLayer){
+           resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
+       } else {
+           resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
+       }
 
         resultMarker.bindPopup("This is a marker displaying " + queryResults.results[i].name);
-
-        // can maybe store results as a nicer-formatted object later, JUST make it functional first
 
         // add marker to the layer group
         resultMarker.addTo(layerType);

@@ -13,3 +13,7 @@
 #singaporeMap {
     height: 500px;
 }
+
+#fluffFinderHeader:hover{
+    background-color: #00CEF1;
+}
