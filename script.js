@@ -79,20 +79,12 @@ searchButton.addEventListener('click', function(){
     // select all of the radio buttons
 
     let resultLimit;
-
-    // forEach to traverse through radioButtons and get the value
-    // MAKE TERNARY LATER
-    radioButtons.forEach(radioButton => {
-        if (radioButton.checked)
-            resultLimit = radioButton.value;
-        else
-            numUncheckedRadios++;
-    });
+    
 
     // first if everything is blank
-    if (!resultForm.value && numUncheckedRadios == 3){
+    if (!resultForm.value && checkRadios() == 3){
         alert("Nothing is selected!");
-    } else if (numUncheckedRadios == 3) {
+    } else if (checkRadios() == 3) {
         if (isNaN(Number(resultForm.value))){
             alert("You did not input a valid number, please try again!");
             // now, ensure that the user inputted results from 10 to 50 only
@@ -101,6 +93,8 @@ searchButton.addEventListener('click', function(){
         } else {
             resultLimit = resultForm.value;
         }
+    } else {
+        resultLimit = 25;
     }
 
     // now, retrieve the data from the results form
@@ -112,7 +106,7 @@ searchButton.addEventListener('click', function(){
     // can refactor this into a switch later
     
 
-    //loadData(fourSquareURL, searchCategory, searchLayer, resultLimit);
+    loadData(fourSquareURL, searchCategory, searchLayer, resultLimit);
     }
 
 );
