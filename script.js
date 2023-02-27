@@ -73,31 +73,20 @@ searchButton.addEventListener('click', function(){
     console.log(searchCategory);
 
     // now, retrieve the data from the results form
-    const resultLimit = document.getElementById("resultLimitForm").value;
+    const radioButtons = document.querySelectorAll(".radios");
 
-    // type of results is a string
-    console.log(typeof resultLimit);
+    // forEach to traverse through radioButtons and get the value
+    radioButtons.forEach(radioButton => {
+        if (radioButton.checked)
+            console.log(radioButton.value);
+    });
 
-    // if results form is left blank, perform validation and avoid calling any functions
-    // can refactor this into a switch later
-    if (resultLimit.length == 0) {
-        alert("results was left blank!");
+    console.log(radioButtons);
 
-        // get results to be NaN to validate that too
-        // Number(results) == NaN did not work, so using the isNan() function
-        // console.log("if results is NaN" + isNaN(Number(results)));
-    } else if (isNaN(Number(resultLimit))){
-        alert("You did not input a valid number, please try again!");
-        // now, ensure that the user inputted results from 10 to 50 only
-    } else if (resultLimit < 10 || resultLimit > 50){
-        alert("You need to input a number from 10-50!");
-    } else {
-        // functional search, pass in all the relevant params!
-        console.log("All error checks completed, loading the data");
-        loadData(fourSquareURL, searchCategory, searchLayer, resultLimit);
+    //loadData(fourSquareURL, searchCategory, searchLayer, resultLimit);
     }
 
-});
+);
 
 
 // async function to load the data from axios
