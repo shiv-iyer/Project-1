@@ -14,11 +14,29 @@ let queryForm;
 let radioButtons;
 let resultForm;
 
-// Custom Leaflet marker icon for dog parks, it's a paw
+// Custom Leaflet marker icons for each individual category
+const petCafeIcon = L.icon({
+    // worry about other variables / options later, first, establish basic functionality for one category
+    iconUrl: '/images/dog-park.png',
+    iconSize: [44, 44]
+});
+
+const petGroomingIcon = L.icon({
+    // worry about other variables / options later, first, establish basic functionality for one category
+    iconUrl: '/images/pet-grooming.png',
+    iconSize: [44, 44]
+});
+
+const petSuppliesIcon = L.icon({
+    // worry about other variables / options later, first, establish basic functionality for one category
+    iconUrl: '/images/pet-supplies.png',
+    iconSize: [44, 44]
+});
+
 const dogParkIcon = L.icon({
     // worry about other variables / options later, first, establish basic functionality for one category
-    iconUrl: '/images/pawbase-border.png',
-    iconSize: [35, 35]
+    iconUrl: '/images/dog-park.png',
+    iconSize: [44, 44]
 });
 
 // Load Leaflet Map 
@@ -187,11 +205,20 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            let resultMarker;
     
            // later, can do a switch on layerType
-           if (layerType == dogParksLayer){
-               resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
-           } else {
-               resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
+           if (layerType == petCafeLayer){
+            resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: petCafeIcon});
+           } else if (layerType == petGroomingLayer){
+            resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: petGroomingIcon});
+           } else if (layerType == petSuppliesLayer){
+            resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: petSuppliesIcon});
+           } else if (layerType == dogParksLayer){
+            resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
            }
+           /*if (layerType == dogParksLayer){
+               resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
+           } else if (layerType =={
+               resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
+           }*/
            
            // retrieve results from API query
            const name = queryResults.results[i].name;
