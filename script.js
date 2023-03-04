@@ -7,6 +7,10 @@ const FOURSQUARE_API_KEY = "fsq3jMP2VLbUVepHLNvSdnHHmMc7KnQT7vAYp7wRcl+DPvU=";
 const sgLatLong = "1.290270,103.851959";
 const searchButton = document.getElementById("btnSearch");
 
+// testing a new branch
+// test 2
+const test = 1;
+
 // initialize some variables that will be assigned after dom content loaded
 let queryForm;
 let radioButtons;
