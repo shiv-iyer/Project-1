@@ -230,6 +230,11 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            liElement.innerHTML = name;
            document.querySelector('#searchResultsList').appendChild(liElement);
            liElement.addEventListener('click', () => {
+            // close the off canvas container
+            document.querySelector("#offCanvasContainer").classList.toggle("show");
+            // FUTURE REF: the bootstrap off canvas creates a div that has the class modal-backdrop whatever
+
+
             map.flyTo([queryGeocodes.latitude, queryGeocodes.longitude], 17);
             // if the map is too zoomed out, the marker isn't there, so the marker cluster isn't opened into a marker yet
             // so zoomToShowLayer zooms in to the specified marker of the marker cluster, so that it's visible on the map

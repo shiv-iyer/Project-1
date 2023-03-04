@@ -28,7 +28,7 @@
 
     <!-- FontAwesome Kit -->
     <script src="https://kit.fontawesome.com/171ea7294d.js" crossorigin="anonymous"></script>
-    
+
     <!-- LINK OWN STYLESHEET OMG I FORGOT -->
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -43,7 +43,7 @@
             <!-- didn't work before the button toggler, try to add it now, REMEMBER HASHTAGS FOR ID -->
             <!-- aria tags are for accessibility purposes. -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-            aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle collapsible navigation menu">
+                aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle collapsible navigation menu">
                 <span class="navbar-toggler-icon"></span>
 
             </button>
@@ -93,7 +93,8 @@
                     <!-- label for the category selection  -->
                     <label for="categorySelection">Select Category</label>
                     <!-- Bootstrap 'select' element to select categories -->
-                    <select id="categoryForm" type="text" class="form-control mb-3" aria-label="Category selection form">
+                    <select id="categoryForm" type="text" class="form-control mb-3"
+                        aria-label="Category selection form">
                         <option value="pet-cafe" selected>Pet Cafes</option>
                         <option value="pet-grooming">Pet Grooming Services</option>
                         <option value="pet-supplies">Pet Supplies Stores</option>
@@ -110,21 +111,24 @@
                         <div id="radioGroup" class="d-flex flex-row">
                             <!-- the form-check class is a series of classes for improving Bootstrap checkboxes and radios -->
                             <div class="form-check space">
-                                <input class="form-check-input radios" type="radio" name="radioGroup" id="results10Radio" value="10">
+                                <input class="form-check-input radios" type="radio" name="radioGroup"
+                                    id="results10Radio" value="10">
                                 <label class="form-check-label" for="results10Radio">
-                                10
+                                    10
                                 </label>
                             </div>
                             <div class="form-check space">
-                                <input class="form-check-input radios" type="radio" name="radioGroup" id="flexRadioDefault2" value="25">
+                                <input class="form-check-input radios" type="radio" name="radioGroup"
+                                    id="flexRadioDefault2" value="25">
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                25
+                                    25
                                 </label>
                             </div>
                             <div class="form-check space">
-                                <input class="form-check-input radios" type="radio" name="radioGroup" id="flexRadioDefault2" value="50">
+                                <input class="form-check-input radios" type="radio" name="radioGroup"
+                                    id="flexRadioDefault2" value="50">
                                 <label class="form-check-label" for="flexRadioDefault2">
-                                50
+                                    50
                                 </label>
                             </div>
                         </div>
@@ -143,9 +147,26 @@
             </button>
 
             <!-- div to store all of the search results on the GUI itself -->
-            <div id="searchResults">
-                <ul id="searchResultsList"></ul>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasContainer"
+                aria-controls="offcanvasRight">Toggle right offcanvas</button>
+
+            <!-- off canvas: off canvas  -->
+            <!-- data-bs-backdrop false disables the backdrop from showing up, if want to fix look into it later -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offCanvasContainer"
+                aria-labelledby="offcanvasRightLabel"
+                data-bs-backdrop="false">
+                <div class="offcanvas-header">
+                    <h5 id="offcanvasRightLabel">Search Results</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div id="searchResults">
+                        <ul id="searchResultsList"></ul>
+                    </div>
+                </div>
             </div>
+            
 
         </div>
         <div id="singaporeMap">
