@@ -174,14 +174,26 @@ async function loadData(url, searchType, layerType, resultLimit){
        const cardTitle = document.createElement("h5");
        cardTitle.setAttribute("class", "card-title");
        cardTitle.innerText = "Card title test";
+
+       // now, child card text
+       const cardText = document.createElement("p");
+       cardText.setAttribute("class", "card-text");
+       cardText.innerText = "93 Kellock Road, 248904";
        
        // append stuff
        cardBody.appendChild(cardTitle);
+       cardBody.appendChild(cardText);
        cardContainer.appendChild(cardBody);
 
 
        resultMarker.bindPopup(cardContainer);
         //resultMarker.bindPopup("This is a marker displaying " + queryResults.results[i].name);
+
+        // add event listener to fly to marker on click
+        resultMarker.addEventListener('click', function(){
+            map.flyTo([queryGeocodes.latitude, queryGeocodes.longitude], 17);
+        });
+
 
         // add marker to the layer group
         resultMarker.addTo(layerType);
