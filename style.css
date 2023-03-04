@@ -37,12 +37,12 @@
     width: 10px;
   }
   
-  /* Track */
+  /* Track: long bar  that holds the handle */
   ::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
   
-  /* Handle */
+  /* Handle: the actual scroll thing itself */
   ::-webkit-scrollbar-thumb {
     background: #888;
   }
