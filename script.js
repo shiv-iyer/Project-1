@@ -75,7 +75,7 @@ const layerController = L.control.layers(
 searchButton.addEventListener('click', function(){
 
     // remove existing search results if any
-    document.querySelector('#searchResults').innerHTML = '';
+    document.querySelector('#searchResultsList').innerHTML = '';
 
     // clear marker layers
     petCafeLayer.clearLayers();
@@ -190,7 +190,7 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
         alert("No search results found!");
     } else {
         // traverse through from 0 to the amount of search results
-        for (let i = 0; i < searchResultsLength; i++){
+        for (let i = 0; i < searchResultsLength; i++){ 
             // obtain geocodes: retrieve the coordinates of each result
             const queryGeocodes = queryResults.results[i].geocodes.main;
     
@@ -223,6 +223,22 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            // retrieve results from API query
            const name = queryResults.results[i].name;
            const formattedAddress = queryResults.results[i].location.formatted_address;
+
+           // create <li> elements
+           const liElement = document.createElement('li');
+           liElement.classList.add("liElements");
+           liElement.innerHTML = name;
+           document.querySelector('#searchResultsList').appendChild(liElement);
+           liElement.addEventListener('click', () => {
+            map.flyTo([queryGeocodes.latitude, queryGeocodes.longitude], 17);
+            // if the map is too zoomed out, the marker isn't there, so the marker cluster isn't opened into a marker yet
+            // so zoomToShowLayer zooms in to the specified marker of the marker cluster, so that it's visible on the map
+            // optional: delay to make the animation smoother
+            // just depends on how far zoomed in you are
+            layerType.zoomToShowLayer(resultMarker, function(){
+                resultMarker.openPopup();
+            })
+           })
     
            // create the card, first container
            const cardContainer = document.createElement("div");
@@ -253,7 +269,6 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            cardContainer.appendChild(cardBody);
     
            resultMarker.bindPopup(cardContainer);
-            //resultMarker.bindPopup("This is a marker displaying " + queryResults.results[i].name);
     
             // add event listener to fly to marker on click
             resultMarker.addEventListener('click', function(){

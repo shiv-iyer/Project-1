@@ -22,3 +22,12 @@
     border-radius: 16px;
     background-color: #99EDC3
 }
+
+#searchResultsList li:hover{
+    background-color:skyblue;
+}
+
+#searchResultsList {
+    height: 100px;
+    overflow-y:scroll;
+}
