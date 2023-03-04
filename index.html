@@ -26,6 +26,9 @@
         href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500&family=Montserrat:wght@200;400;600&family=Unbounded&display=swap"
         rel="stylesheet">
 
+    <!-- FontAwesome Kit -->
+    <script src="https://kit.fontawesome.com/171ea7294d.js" crossorigin="anonymous"></script>
+    
     <!-- LINK OWN STYLESHEET OMG I FORGOT -->
     <link rel="stylesheet" href="style.css" />
 </head>
@@ -97,8 +100,8 @@
                         <option value="dog-parks">Dog Parks</option>
                     </select>
                 </div>
-                <div>
 
+                <div>
                     <!-- label for results selection -->
                     <label for="results">Select Number of Results</label>
                     <!-- group to display all radio buttons -->
@@ -131,7 +134,12 @@
                 </div>
             </div>
 
-            <button type="button" id="btnSearch" class="btn btn-dark">Search For Places</button>
+            <!-- add the icon to the button search -->
+            <button type="button" id="btnSearch" class="btn btn-dark">
+                <!-- span to display the fontawesome icon within the button -->
+                <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                Search For Places
+            </button>
         </div>
         <div id="singaporeMap">
         </div>
