@@ -78,6 +78,8 @@ searchButton.addEventListener('click', function(){
         case 'dog-parks': searchCategory = 16033;
                           searchLayer = dogParksLayer;
             break;
+        case 'all': searchCategory = [13063, 11134, 17110, 16033];
+                    searchLayer = [petCafeLayer, petGroomingLayer, petSuppliesLayer, dogParksLayer];
         // maybe don't need default? since it is only 1 of 4 options rn
     }
 
@@ -102,9 +104,17 @@ searchButton.addEventListener('click', function(){
             resultLimit = resultForm.value;
         }
     } else {
-        // switch to get selected radio button
+        // switch to get selected radio button, implement later
         resultLimit = 25;
-        loadData(fourSquareURL, userQuery, searchCategory, searchLayer, resultLimit);
+        if (Array.isArray(searchCategory) && Array.isArray(searchLayer)) {
+            // for loop to iterate through all 4 layers and call loadData 4 types
+            for (let i=0; i<4; i++) {
+                loadData(fourSquareURL, userQuery, searchCategory[i], searchLayer[i], resultLimit);
+            }
+        }
+        else {
+            loadData(fourSquareURL, userQuery, searchCategory, searchLayer, resultLimit);
+        }
     }
 
     // now, retrieve the data from the results form
@@ -246,6 +256,12 @@ function checkRadios(){
     });
     console.log("Check radios was reached");
     return numUncheckedRadios;
+}
+
+function createMarkers(){
+    // parameters to be passed in:
+    // - search results length
+    // - 
 }
 
 /*function createMarkerCard(){
