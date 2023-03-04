@@ -56,6 +56,15 @@ const layerController = L.control.layers(
 // Event Listener for search button: on click
 searchButton.addEventListener('click', function(){
 
+    // remove existing search results if any
+    document.querySelector('#searchResults').innerHTML = '';
+
+    // clear marker layers
+    petCafeLayer.clearLayers();
+    petGroomingLayer.clearLayers();
+    petSuppliesLayer.clearLayers();
+    dogParksLayer.clearLayers();
+
     const userQuery = queryForm.value;
     console.log("User query: " + userQuery);
 
