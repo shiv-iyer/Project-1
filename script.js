@@ -185,6 +185,11 @@ async function loadData(url, searchType, layerType, resultLimit){
        cardBody.appendChild(cardText);
        cardContainer.appendChild(cardBody);
 
+       // now let's test some query results
+       const name = queryResults.results[i].name;
+       const formattedAddress = queryResults.results[i].location.formatted_address;
+       console.log("Name: " + name);
+       console.log("Address: " + formattedAddress);
 
        resultMarker.bindPopup(cardContainer);
         //resultMarker.bindPopup("This is a marker displaying " + queryResults.results[i].name);
