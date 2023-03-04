@@ -73,16 +73,22 @@
         <div id="headerContainer" class="mt-3 ms-3 mb-3">
             <!-- OK WORRY ABOUT ROW / UIUX LATER-->
 
-            <!-- label for the category selection  -->
-            <label for="categorySelection">Select Category</label>
-
-
             <!-- for styling of the two columns-->
             <!-- <div class="col-sm-8 col-md-9"> -->
             <!-- <div class="col-sm-4 col-md-3"> -->
 
+            <!-- for adding the search form, add a column to display both rows -->
+            <div class="col mb-3">
+                <!-- label for query search -->
+                <label for="querySearch">Search by Place</label>
+                <div id="textInput">
+                    <input type="text" class="form-control" id="queryForm" placeholder="Type anything...">
+                </div>
+            </div>
             <div class="row mb-3">
                 <div>
+                    <!-- label for the category selection  -->
+                    <label for="categorySelection">Select Category</label>
                     <!-- Bootstrap 'select' element to select categories -->
                     <select id="categoryForm" type="text" class="form-control mb-3" aria-label="Category selection form">
                         <option value="pet-cafe" selected>Pet Cafes</option>
@@ -93,6 +99,9 @@
                 </div>
                 <div>
 
+                    <!-- label for results selection -->
+                    <label for="results">Select Number of Results</label>
+                    <!-- group to display all radio buttons -->
                     <div id="resultSearchGroup" class="d-flex flex-row">
                         <div id="radioGroup" class="d-flex flex-row">
                             <!-- the form-check class is a series of classes for improving Bootstrap checkboxes and radios -->

@@ -164,6 +164,10 @@ async function loadData(url, searchType, layerType, resultLimit){
            resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
        }
        
+       // retrieve results from API query
+       const name = queryResults.results[i].name;
+       const formattedAddress = queryResults.results[i].location.formatted_address;
+
        // create the card, first container
        const cardContainer = document.createElement("div");
        cardContainer.setAttribute("class", "card");
@@ -173,23 +177,24 @@ async function loadData(url, searchType, layerType, resultLimit){
        // now, card title
        const cardTitle = document.createElement("h5");
        cardTitle.setAttribute("class", "card-title");
-       cardTitle.innerText = "Card title test";
+       cardTitle.innerText = name;
 
        // now, child card text
        const cardText = document.createElement("p");
        cardText.setAttribute("class", "card-text");
-       cardText.innerText = "93 Kellock Road, 248904";
+       cardText.innerText = formattedAddress;
+
+       // possible todo: secondary "Type: Pet Cafe" for whatever category it is
+       // image testing
+       let imageUrl = queryResults.results[i].categories[0].icon.prefix;
+       const imageSuffix = ".png";
+       imageUrl += imageSuffix;
+       console.log("image url: " + imageUrl);
        
        // append stuff
        cardBody.appendChild(cardTitle);
        cardBody.appendChild(cardText);
        cardContainer.appendChild(cardBody);
-
-       // now let's test some query results
-       const name = queryResults.results[i].name;
-       const formattedAddress = queryResults.results[i].location.formatted_address;
-       console.log("Name: " + name);
-       console.log("Address: " + formattedAddress);
 
        resultMarker.bindPopup(cardContainer);
         //resultMarker.bindPopup("This is a marker displaying " + queryResults.results[i].name);
@@ -227,6 +232,7 @@ function checkRadios(){
         if (!radioButton.checked)
             numUncheckedRadios++;
     });
+    console.log("Check radios was reached");
     return numUncheckedRadios;
 }
 
