@@ -94,6 +94,7 @@ searchButton.addEventListener('click', function(){
             resultLimit = resultForm.value;
         }
     } else {
+        // switch to get selected radio button
         resultLimit = 25;
     }
 
@@ -155,13 +156,32 @@ async function loadData(url, searchType, layerType, resultLimit){
        // if layer type = dog parks layer, add custom icon, else normal
 
        let resultMarker;
+
+       // later, can do a switch on layerType
        if (layerType == dogParksLayer){
            resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
        } else {
            resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
        }
+       
+       // create the card, first container
+       const cardContainer = document.createElement("div");
+       cardContainer.setAttribute("class", "card");
+       // next, card body
+       const cardBody = document.createElement("div");
+       cardBody.setAttribute("class", "card-body");
+       // now, card title
+       const cardTitle = document.createElement("h5");
+       cardTitle.setAttribute("class", "card-title");
+       cardTitle.innerText = "Card title test";
+       
+       // append stuff
+       cardBody.appendChild(cardTitle);
+       cardContainer.appendChild(cardBody);
 
-        resultMarker.bindPopup("This is a marker displaying " + queryResults.results[i].name);
+
+       resultMarker.bindPopup(cardContainer);
+        //resultMarker.bindPopup("This is a marker displaying " + queryResults.results[i].name);
 
         // add marker to the layer group
         resultMarker.addTo(layerType);
@@ -192,5 +212,9 @@ function checkRadios(){
     });
     return numUncheckedRadios;
 }
+
+/*function createMarkerCard(){
+    return;
+}*/
 
 // TODO: refactor my functions to be individual (not all part of the loadData function)
