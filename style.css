@@ -23,21 +23,35 @@
     background-color: #99EDC3
 }
 
-/* style the search results list */
+/* style the search results list, list-style-type: square looks quite nice
+* list-style-type: none removes the bullet point. padding:0 is required to also remove the bullet indentation.
+*/
+
 #searchResultsList {
     height: 300px;
     overflow-y:scroll;
     outline: thick ridge #ED33B9;
-    list-style-type: square;
-}
-
-#searchResultsList li:hover{
-    background-color:skyblue;
+    list-style-type: none;
+    padding: 0;
 }
 
 /* search results list elements styling */
 #searchResultsList li{
     margin: 5px;
+}
+
+/* nth child is amazing! can style every odd/even child of all LI elements, can even apply numbers. */ 
+#searchResultsList li:nth-child(even){
+    background-color:#00b2ca;
+}
+
+#searchResultsList li:nth-child(odd){
+    background-color:#7dcfb6;
+}
+
+/* need to put after the other background colors, due to specificity rules (if it was before, wouldn't take effect) */
+#searchResultsList li:hover{
+    background-color: #fbd1a2;
 }
 
 /* width */
@@ -63,4 +77,13 @@
   #closeButton{
     border: 5px solid black;
     border-radius: 10px;
+  }
+
+  #offCanvasContainer{
+    border: 4px solid black;
+    border-radius: 10px;
+  }
+
+  #offCanvasHeader{
+    background-color:#DEDEDE;
   }
