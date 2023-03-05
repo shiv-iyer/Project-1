@@ -23,13 +23,21 @@
     background-color: #99EDC3
 }
 
+/* style the search results list */
+#searchResultsList {
+    height: 300px;
+    overflow-y:scroll;
+    outline: thick ridge #ED33B9;
+    list-style-type: square;
+}
+
 #searchResultsList li:hover{
     background-color:skyblue;
 }
 
-#searchResultsList {
-    height: 100px;
-    overflow-y:scroll;
+/* search results list elements styling */
+#searchResultsList li{
+    margin: 5px;
 }
 
 /* width */
@@ -50,4 +58,9 @@
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
+  }
+
+  #closeButton{
+    border: 5px solid black;
+    border-radius: 10px;
   }

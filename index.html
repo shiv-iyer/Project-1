@@ -148,7 +148,7 @@
 
             <!-- div to store all of the search results on the GUI itself -->
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasContainer"
-                aria-controls="offcanvasRight">Toggle right offcanvas</button>
+                aria-controls="offcanvasRight">Display Search Results</button>
 
             <!-- off canvas: off canvas  -->
             <!-- data-bs-backdrop false disables the backdrop from showing up, if want to fix look into it later -->
@@ -156,8 +156,8 @@
                 aria-labelledby="offcanvasRightLabel"
                 data-bs-backdrop="false">
                 <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Search Results</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    <h3 id="offcanvasRightLabel" class="display-5">Search Results</h5>
+                    <button type="button" id="closeButton" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
