@@ -1,10 +1,10 @@
-#navbar {
+.navbar {
     /* red-orange color to contrast with the map */
     background-color: #DABFFF;
     /* nice blue #7AC5CD; */
 }
 
-#fluffFinderHeader {
+.fluffFinderHeader {
     font-family: 'Exo 2', sans-serif;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Unbounded', cursive;
