@@ -58,8 +58,17 @@ const petCafeLayer = L.markerClusterGroup({
     }
 }).addTo(map);
 
-const petGroomingLayer = L.markerClusterGroup().addTo(map);
-const petSuppliesLayer = L.markerClusterGroup().addTo(map);
+const petGroomingLayer = L.markerClusterGroup({
+    iconCreateFunction: function(cluster){
+        return L.divIcon({html: '<div class="petGroomingDot">' + cluster.getChildCount() + '</div>', className:'dummy'});
+    }
+}).addTo(map);
+
+const petSuppliesLayer = L.markerClusterGroup({
+    iconCreateFunction: function(cluster){
+        return L.divIcon({html: '<div class="petSuppliesDot">' + cluster.getChildCount() + '</div>', className:'dummy'});
+    }
+}).addTo(map);
 
 const dogParksLayer = L.markerClusterGroup({
     iconCreateFunction: function(cluster){

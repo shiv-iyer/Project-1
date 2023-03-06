@@ -91,8 +91,28 @@
   .petCafeDot {
     height: 30px;
     width: 30px;
+    border: 2px solid #68F1B3;
+    background-color: #45D22D;
+    box-shadow: 1px 1px 14px 9px rgba(0,0,0,0.65);
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .petGroomingDot {
+    height: 30px;
+    width: 30px;
     border: 2px solid #82EEFD;
     background-color: #52B2BF;
+    box-shadow: 1px 1px 14px 9px rgba(0,0,0,0.65);
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .petSuppliesDot {
+    height: 30px;
+    width: 30px;
+    border: 2px solid #EEB902;
+    background-color: #FCE762;
     box-shadow: 1px 1px 14px 9px rgba(0,0,0,0.65);
     border-radius: 50%;
     text-align: center;
