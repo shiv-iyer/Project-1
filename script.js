@@ -54,13 +54,18 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // className of the icon will be dummy so that it overrides Leaflet's default marker cluster icon class, which has a white background
 const petCafeLayer = L.markerClusterGroup({
     iconCreateFunction: function(cluster){
-        return L.divIcon({html: '<div class="dot">' + cluster.getChildCount() + '</div>', className:'dummy'});
+        return L.divIcon({html: '<div class="petCafeDot">' + cluster.getChildCount() + '</div>', className:'dummy'});
     }
 }).addTo(map);
 
 const petGroomingLayer = L.markerClusterGroup().addTo(map);
 const petSuppliesLayer = L.markerClusterGroup().addTo(map);
-const dogParksLayer = L.markerClusterGroup().addTo(map);
+
+const dogParksLayer = L.markerClusterGroup({
+    iconCreateFunction: function(cluster){
+        return L.divIcon({html: '<div class="dogParkDot">' + cluster.getChildCount() + '</div>', className:'dummy'});
+    }
+}).addTo(map);
 
 L.layerGroup()
 
