@@ -50,10 +50,11 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // create individual marker cluster groups for each layer to be displayed.
 
 // customize html of the marker cluster display... WIP
-// from Marker Cluster documentation
+// from Marker Cluster documentation. style the div so that 
+// className of the icon will be dummy so that it overrides Leaflet's default marker cluster icon class, which has a white background
 const petCafeLayer = L.markerClusterGroup({
     iconCreateFunction: function(cluster){
-        return L.divIcon({html: '<b>' + cluster.getChildCount() + '</b>'});
+        return L.divIcon({html: '<div class="dot">' + cluster.getChildCount() + '</div>', className:'dummy'});
     }
 }).addTo(map);
 
