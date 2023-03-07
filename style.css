@@ -175,3 +175,8 @@
     position: relative;
     top: -13px;
 }
+
+#lowerContainer{
+  border: 3px solid black;
+  border-radius: 8px;
+}
