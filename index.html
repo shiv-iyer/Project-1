@@ -140,16 +140,20 @@
             </div>
 
             <!-- add the icon to the button search -->
-            <button type="button" id="btnSearch" class="btn btn-dark">
+            <button type="button" id="btnSearch" class="btn btn-dark buttons">
                 <!-- span to display the fontawesome icon within the button -->
                 <span><i class="fa-solid fa-magnifying-glass"></i></span>
                 Search For Places
             </button>
 
-            <!-- div to store all of the search results on the GUI itself -->
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasContainer"
-                aria-controls="offcanvasRight">Display Search Results</button>
+            <!-- button for search results display, acts on off canvas container -->
+            <button class="btn btn-primary buttons" type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasContainer"
+                aria-controls="offcanvasRight">
+                <span><i class="fa-solid fa-tv"></i></span>
+                Display Search Results
+            </button>
 
+            <!-- div to store all of the search results on the GUI itself -->
             <!-- off canvas: off canvas  -->
             <!-- data-bs-backdrop false disables the backdrop from showing up, if want to fix look into it later -->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offCanvasContainer"
@@ -166,6 +170,13 @@
                     </div>
                 </div>
             </div>
+
+            <!-- button to clear markers -->
+            <button type="button" id="btnClear" class="btn btn-warning buttons">
+                <!-- span to display the fontawesome icon within the button -->
+                <span><i class="fa-solid fa-eraser"></i></span>
+                Clear Map Content
+            </button>
             
 
         </div>
