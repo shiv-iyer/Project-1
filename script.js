@@ -93,10 +93,7 @@ searchButton.addEventListener('click', function(){
     document.querySelector('#searchResultsList').innerHTML = '';
 
     // clear marker layers
-    petCafeLayer.clearLayers();
-    petGroomingLayer.clearLayers();
-    petSuppliesLayer.clearLayers();
-    dogParksLayer.clearLayers();
+    clearLayers();
 
     const userQuery = queryForm.value;
     console.log("User query: " + userQuery);
@@ -169,6 +166,12 @@ searchButton.addEventListener('click', function(){
     }
 
 );
+
+// Event Listener for clear button: on click
+document.querySelector("#btnClear").addEventListener('click', function(){
+    console.log("Clear button was clicked!");
+    clearLayers();
+});
 
 
 // async function to load the data from axios
@@ -339,4 +342,12 @@ function createMarkers(){
     return;
 }*/
 
+function clearLayers(){
+    petCafeLayer.clearLayers();
+    petGroomingLayer.clearLayers();
+    petSuppliesLayer.clearLayers();
+    dogParksLayer.clearLayers();
+}
+
 // TODO: refactor my functions to be individual (not all part of the loadData function)
+
