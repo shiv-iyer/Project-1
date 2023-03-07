@@ -173,7 +173,6 @@ document.querySelector("#btnClear").addEventListener('click', function(){
     clearLayers();
 });
 
-
 // async function to load the data from axios
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
@@ -337,6 +336,26 @@ function createMarkers(){
     // - search results length
     // - 
 }
+
+// Event listener for the email form submission
+document.querySelector("#emailSubmitBtn").addEventListener('click', function(){
+    const emailForm = document.querySelector("#emailForm");
+    const emailInput = emailForm.value;
+    // basic validation for now: check if user input includes '@' and '.' to validate the email address.
+    // and minimum length of the email address, since .com is 4 characters and @<domainName> would be minimum 5 so min length 9
+    // further possible validation steps would involve RegEx, but it is very difficult to understand...
+    if (!emailForm.value){
+        alert("You left the email address field blank, please try again!");
+    }
+    else if (!emailInput.includes("@") || !emailInput.includes(".") || emailInput.length < 9){
+        alert("You submitted an invalid email address, please try again!");
+    } else {
+        alert("Successful submission! Please check your inbox for updates :)");
+        // clear form once submission is successful!
+        emailForm.value = "";
+    }
+});
+
 
 /*function createMarkerCard(){
     return;
