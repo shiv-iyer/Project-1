@@ -1,6 +1,7 @@
 .navbar {
     /* red-orange color to contrast with the map */
-    background-color: #DABFFF;
+    background-color: #cda9ff;
+    border-bottom: 1px solid black;
     /* nice blue #7AC5CD; */
 }
 
@@ -12,6 +13,7 @@
 
 #singaporeMap {
     height: 500px;
+
 }
 
 .space {
@@ -132,4 +134,12 @@
 
   .buttons{
     margin: 3px;
+  }
+
+ body{
+    background-image: linear-gradient(#FFFDE7, #FFEFCB, #F6E3BA, #DFCAA0);
+  }
+
+  #mainContainer{
+    background-color: white;
   }
