@@ -21,7 +21,11 @@
     margin: 5px;
 }
 
-.hoverable:hover{
+.navbarElement{
+  font-family: 'Carter One', cursive;
+}
+
+.navbarElement:hover{
     border-radius: 16px;
     background-color: #99EDC3
 }
@@ -152,3 +156,22 @@
   #copyrightText{
     text-align: center;
   }
+
+  /* custom hr styling */
+  hr {
+    border-top: medium double black;
+    content: '§';
+    color: #333;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+  }
+
+  /* seems like 'content' doesn't work unless you specify it under after (after means after the content has loaded) */
+  hr:after {
+    background: #fff;
+    content: '§';
+    padding: 0 0.25em;
+    position: relative;
+    top: -13px;
+}
