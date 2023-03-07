@@ -1,8 +1,8 @@
 .navbar {
-    /* red-orange color to contrast with the map */
+    /* lavender will be my main theme / styling! */
     background-color: #cda9ff;
-    border-bottom: 1px solid black;
-    /* nice blue #7AC5CD; */
+    border-bottom: 2px solid black;
+    
 }
 
 .fluffFinderHeader {
@@ -12,8 +12,9 @@
 }
 
 #singaporeMap {
-    height: 500px;
-
+    height: 70vh;
+    border: 3px solid black;
+    border-radius: 8px;
 }
 
 .space {
@@ -136,10 +137,18 @@
     margin: 3px;
   }
 
- body{
+/* Background image is required to use linear gradient, linear gradient for cream and beige blending! */
+ body {
     background-image: linear-gradient(#FFFDE7, #FFEFCB, #F6E3BA, #DFCAA0);
   }
 
   #mainContainer{
-    background-color: white;
+    background-color: snow;
+    border: 4px dotted cyan;
+    /* Play font gives the website a sleek feel */
+    font-family: 'Play', sans-serif;
+  }
+
+  #copyrightText{
+    text-align: center;
   }
