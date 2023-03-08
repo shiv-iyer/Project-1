@@ -40,6 +40,20 @@ All in all, the main goal of the website is to assist Singaporeans in finding an
 ## Technologies Used
 (list everything out - HTML / CSS / JS / Bootstrap / Axios / Leaflet / Leaflet Marker Cluster / any others etc.)
 
+1. HTML
+
+2. CSS
+
+3. Bootstrap
+
+4. JavaScript
+
+5. Axios
+
+6. LeafletJS
+
+7. Leaflet Marker Cluster
+
 --- 
 
 ## Testing
