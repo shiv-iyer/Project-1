@@ -17,8 +17,10 @@ Fluff Finder is the perfect website for any pet lovers in Singapore! The site's 
 
 #### Color Scheme
 (display colors of the website and the goal of them - what kind of feel / vibe do they give?)
+
 #### Fonts
 (describe custom fonts used here, ex. from GoogleFonts)
+
 ---
 
 ## Features
@@ -30,10 +32,12 @@ Fluff Finder is the perfect website for any pet lovers in Singapore! The site's 
 
 ## Limitations and Future Implementations
 (what doesn't the project address)
+
 ---
 
 ## Technologies Used
 (list everything out - HTML / CSS / JS / Bootstrap / Axios / Leaflet / Leaflet Marker Cluster / any others etc.)
+
 --- 
 
 ## Testing
