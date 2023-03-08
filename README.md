@@ -23,6 +23,10 @@ All in all, the main goal of the website is to assist Singaporeans in finding an
 #### Fonts
 (describe custom fonts used here, ex. from GoogleFonts)
 
+- *Play* is a font that (info on Play). This was chosen as the primary font of the website, allowing for a friendly and sleek overall appearance for the user.
+- *Unbounded* was selected as the font for the main Fluff Finder header on the website, giving the header a strong and stylish appearance. (possibly more expansion)
+- *Carter One* is (font background). It was chosen as the font for the navigation bar elements, distinguishing them from the other text elements on the page and helping them stand out.
+
 ---
 
 ## Features
