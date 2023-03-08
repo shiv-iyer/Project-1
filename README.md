@@ -5,8 +5,10 @@ Fluff Finder is the perfect website for any pet lovers in Singapore! The site's 
 ## Project Summary & Goals
 
 (talk about project overview / summary)
+Fluff Finder allows for the seamless discovery of any pet-related locales in Singapore: Pet Cafes, Pet Groomers, Pet Supplies Stores and Dog Parks. By displaying the name and address of each individual location on the map, <>. Each location category is also separated via different icons, enabling easy differentiation between the various locations it displays.
 
 (talk about target audience)
+All in all, the main goal of the website is to assist Singaporeans in finding any relevant locations for their pets. As some of these can be quite difficult to find for the average pet owner, Fluff Finder enables easy and near-instantaneous access to crucial information about any areas & services they might require for their pets. Ultimately, this saves users time and hassle, enriching the overall experience for all pet owners and their fluffy friends!
 
 ## UI/UX Elements
 
