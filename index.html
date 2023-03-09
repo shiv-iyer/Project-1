@@ -144,6 +144,8 @@
                 </div>
             </div>
 
+            <!-- future: different styling for mobile and desktop using rows and columns -->
+
             <!-- add the icon to the button search -->
             <button type="button" id="btnSearch" class="btn btn-dark buttons">
                 <!-- span to display the fontawesome icon within the button -->
@@ -184,7 +186,9 @@
             </button>
             
             <!-- use form-control-plaintext to make the field readonly but display as normal -->
-            <input type="text" class="form-control-plaintext" id="mapUpdatesForm" placeholder="Map Updates will appear here!" readonly>
+            <div id="mapUpdatesContainer" class="mt-2">
+                <input type="text" class="form-control-plaintext" id="mapUpdatesForm" placeholder="Map Updates will appear here!" readonly>
+            </div>
 
         </div>
         <div id="singaporeMap">
