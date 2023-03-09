@@ -7,10 +7,11 @@ const FOURSQUARE_API_KEY = "fsq3jMP2VLbUVepHLNvSdnHHmMc7KnQT7vAYp7wRcl+DPvU=";
 const sgLatLong = "1.290270,103.851959";
 const searchButton = document.getElementById("btnSearch");
 
-// initialize some variables that will be assigned after dom content loaded
+// initialize some html elements that will be selected & assigned after dom content loaded
 let queryForm;
 let radioButtons;
 let resultForm;
+let updatesForm;
 
 // Custom Leaflet marker icons for each individual category
 const petCafeIcon = L.icon({
@@ -314,8 +315,10 @@ window.addEventListener("DOMContentLoaded", function(){
     queryForm = document.getElementById("queryForm");
     radioButtons = document.querySelectorAll(".radios");
     resultForm = document.getElementById("resultLimitForm");
+    updatesForm = document.getElementById("mapUpdatesForm");
     console.log(queryForm);
     console.log(resultForm);
+    console.log(updatesForm);
 
     // Clear radio buttons if an input is detected on the result form; avoid users dual-submitting results options
     resultForm.addEventListener('input', function(){
