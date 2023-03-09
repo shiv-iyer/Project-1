@@ -76,6 +76,8 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 ## Deployment
 The web application is hosted on and was deployed through [Netlify](https://www.netlify.com/).
 
+[Link to Website](https://fluff-finder.netlify.app/)
+
 ---
 
 ## Credits and Acknowledgment
