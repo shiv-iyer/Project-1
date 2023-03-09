@@ -179,3 +179,14 @@
   border: 3px solid black;
   border-radius: 8px;
 }
+
+/* for styling of marker text, centering! */
+.marker-card-items{
+  text-align: center;
+}
+
+.marker-card-main{
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 10px;
+}
