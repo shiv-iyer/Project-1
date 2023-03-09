@@ -1,5 +1,5 @@
 # Fluff Finder
-[image]
+![Mobile-Responsive Mockup image](assets/resources/mockup.png)
 
 Live link to demo: [Fluff Finder](https://fluff-finder.netlify.app/)
 
