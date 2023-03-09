@@ -7,18 +7,20 @@ const dogImagesURL = "https://random.dog/woof.json";
 window.addEventListener("DOMContentLoaded", function(){
     const dogFactForm1 = document.getElementById("dogQuote1");
     const refreshButton1 = document.getElementById("dogBtn1");
-    const imageContainer = document.getElementById("dogImg1");
+    const dogImageContainer1 = document.getElementById("dogImg1");
     let dogFactForm2;
     let catFactForm1;
     let catFactForm2;
 
-    refreshButton1.addEventListener('click', function(){
-        /*const loadedImage = loadDogImage(dogImagesURL);
+    refreshButton1.addEventListener('click', async function(){
+        if(dogImageContainer1.innerHTML){
+            dogImageContainer1.innerHTML = "";
+        }
+        const loadedImage = await loadDogImage(dogImagesURL);
         const image = document.createElement("img");
         image.src = loadedImage;
-
-        imageContainer.appendChild(image);*/
-        loadDogImage(dogImagesURL);
+        dogImageContainer1.appendChild(image);
+        console.log(image.src);
 
     })
 });
