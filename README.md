@@ -6,7 +6,7 @@ Live link to demo: [Fluff Finder](https://fluff-finder.netlify.app/)
 ## Project Summary
 
 ### Overview 
-Fluff Finder is the perfect website for any pet lovers in Singapore! The site's primary feature is an interactive map, enabling users to discover various pet-friendly locations in Singapore. The website allows for the seamless discovery of any pet-related locales in Singapore: Pet Cafes, Pet Groomers, Pet Supplies Stores, and Dog Parks. By displaying the name and address of each individual location on the map, users can identify locations they would like to learn more about or even travel to with ease. Each location category is also separated via different icons, enabling easy differentiation between the various locations the map displays.
+Fluff Finder is the perfect website for any pet lovers in Singapore! The site's primary feature is an interactive map, enabling users to discover various pet-friendly locations in Singapore. The website allows for the seamless discovery of any pet-related locales in Singapore: Pet Cafés, Pet Groomers, Pet Supplies Stores, and Dog Parks. By displaying the name and address of each individual location on the map, users can identify locations they would like to learn more about or even travel to with ease. Each location category is also separated via different icons, enabling easy differentiation between the various locations the map displays.
 
 The site also features a relaxing second page where users can enjoy randomly-generated images of dogs!
 
@@ -53,6 +53,7 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 - NO GEOLPOCATION
 - COMPLETE REST OF MY PAGES
 - improve functionality for search category: all
+- marker display: images, better styling?
 
 ---
 
@@ -79,7 +80,7 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 --- 
 
 ## Testing
-(table of test cases)
+(just do as pdf, table for next project)
 
 ---
 
@@ -99,4 +100,4 @@ The web application is hosted on and was deployed through [Netlify](https://www.
 
 [Carter One](https://fonts.google.com/specimen/Carter+One)
 
-https://www.mesaparks.com/parks-facilities/dog-parks dog park image
+https://www.aacounty.org/services-and-programs/dogs-in-the-park dog park image
