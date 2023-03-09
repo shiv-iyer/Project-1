@@ -42,7 +42,7 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 
 | Features | Description |
 | ----------- | ----------- |
-| Search for pet-friendly locations | filter by name (optional), category, result |
+| Search for pet-friendly locations | This search feature enables users to search for various pet-friendly locations, with the ability to fine-tune their search by entering a name, selecting a category, and choosing the number of results (from 10-50) to display. Every time a successful search is completed, all previous results will be cleared from the map. This functions by matching the selected parameters of the search to the results from the data set, with said results being extracted for processing later on. |
 | Display locations as markers & show location information | marker cluster groups, show name, address and type of location, map zoom / fly to marker |
 | Display search results | shows the results in a side panel toggleable by a button, upon click will also zoom and fly to the marker and open the popup with information | 
 | Map controls | Zoom in and out of the map, toggle visible layers | 
