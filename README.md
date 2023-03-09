@@ -98,3 +98,5 @@ The web application is hosted on and was deployed through [Netlify](https://www.
 [Unbounded](https://fonts.google.com/specimen/Unbounded)
 
 [Carter One](https://fonts.google.com/specimen/Carter+One)
+
+https://www.mesaparks.com/parks-facilities/dog-parks dog park image
