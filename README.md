@@ -22,6 +22,8 @@ Some more pain points: very difficult to find dog-friendly locations in SG, reso
 #### Color Scheme
 ![Color Scheme screenshot](assets/resources/color-palette.jpg)
 
+The main color scheme of the project revolves around a light background (a beige-wheat gradient), with a lavender accent for the header. The items within the main content box are backed by a smooth snowy base. These light colors evoke a sense of calm and tranquility, while maintaining an elegant touch. Light colors are also easy on the eyes, avoiding any jarring effects and creating an affable atmosphere. The lavender color also represents a sense of elegance and sophistication. Mint green highlighting is also used to directly complement the lavender header color. All in all, these colors come together to present the website in a professional yet friendly manner.
+
 #### Fonts
 
 - *Play* is a minimalistic typeface that has been designed to appear both square and circular at the same time. Each letter derives from the letter 'O' - which allows for a sense of balance and interconnectedness. This was chosen as the primary font of the website, allowing for a friendly and sleek overall appearance for the user, with the text being very legible and easy on the eyes.
