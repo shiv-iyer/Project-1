@@ -52,6 +52,7 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 - mp4
 - NO GEOLPOCATION
 - COMPLETE REST OF MY PAGES
+- improve functionality for search category: all
 
 ---
 
@@ -62,7 +63,7 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 2. CSS
 
 3. [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
-  - Was used for many of the main website components, including the navbar, forms, buttons, and offcanvas functionality. Was also utilized to implement mobile-responsiveness.
+  - Was used for many of the main website components, including the navbar, forms, buttons, and offcanvas functionality. Bootstrap was also utilized as the primary means of implementing mobile-responsiveness for the website.
 
 4. JavaScript
 
