@@ -52,14 +52,15 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 ---
 
 ## Limitations and Future Implementations
-(what doesn't the project address)
-- image height isn't static
-- jb 
-- mp4
-- NO GEOLPOCATION
-- COMPLETE REST OF MY PAGES
-- improve functionality for search category: all
-- marker display: images, better styling?
+- Search by user query is rather inaccurate, as FourSquare's search by query has some limitations
+    - Solution: consider using another API, such as OneMap, for more accurate data retrieval based on location-specific searches
+- Marker results displayed aren't fully confined to Singapore, and sometimes bleed over into Malaysia
+    - Solution: consider utilizing the FourSquare radius function to limit the search to Singapore's geographical boundaries.
+- Randomized dog images have some issues: their height doesn't perfectly match the parent container, and sometimes an invalid file format is returned, causing the feature to break
+    - Solution: consider adding more styling rules to better match the image to the parent container, as well as implement further validation rules to only pass in selected image file formats
+- More pages were planned, but aren't implemented for the website yet
+    - Animal Statistics page: could display data using charts
+    - About Us & Contact Us pages
 
 ---
 
