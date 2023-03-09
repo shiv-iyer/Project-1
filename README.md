@@ -21,11 +21,12 @@ All in all, the main goal of the website is to assist Singaporeans in finding an
 (display colors of the website and the goal of them - what kind of feel / vibe do they give?)
 
 #### Fonts
-(describe custom fonts used here, ex. from GoogleFonts)
 
-- *Play* is a font that (info on Play). This was chosen as the primary font of the website, allowing for a friendly and sleek overall appearance for the user.
-- *Unbounded* was selected as the font for the main Fluff Finder header on the website, giving the header a strong and stylish appearance. (possibly more expansion)
-- *Carter One* is (font background). It was chosen as the font for the navigation bar elements, distinguishing them from the other text elements on the page and helping them stand out.
+- *Play* is a minimalistic typeface that has been designed to appear both square and circular at the same time. Each letter derives from the letter 'O' - which allows for a sense of balance and interconnectedness. This was chosen as the primary font of the website, allowing for a friendly and sleek overall appearance for the user, with the text being very legible and easy on the eyes.
+- *Unbounded* was selected as the font for the main Fluff Finder header on the website. While it is a bold and courageous font in its own right, it's also capable of accounting for hundreds of languages worldwide, as well as countless symbols and glyphs. This resultantly gives the header a strong and stylish appearance, while retaining its universality. 
+- *Carter One* is a font that reimagines popular typeforms from the mid-20th century. As it was frequently found in advertising and book covers, it enables text to have a bold, distinct appearance. It was chosen as the font for the navigation bar elements, distinguishing them from the other text elements on the page and helping them stand out.
+
+All in all, the selected fonts are directly in-line with the goal of making the website very warm and friendly to the user, while maintaining a clean and professional feeling.
 
 ---
 
@@ -72,3 +73,11 @@ All in all, the main goal of the website is to assist Singaporeans in finding an
 
 ## Credits and Acknowledgment
 (credit all external assets here. ex. fonts, icons, data (where you got the API from, ex. FourSquare), screenshot tool to create mockup)
+
+#### Custom Fonts from Google Fonts
+
+Play https://fonts.google.com/specimen/Play
+
+Unbounded https://fonts.google.com/specimen/Unbounded
+
+Carter One https://fonts.google.com/specimen/Carter+One
