@@ -43,6 +43,11 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 
 ## Limitations and Future Implementations
 (what doesn't the project address)
+- image height isn't static
+- jb 
+- mp4
+- NO GEOLPOCATION
+- COMPLETE REST OF MY PAGES
 
 ---
 
