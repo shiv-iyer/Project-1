@@ -118,8 +118,7 @@ searchButton.addEventListener('click', function(){
     console.log(searchCategory);
 
 
-    // select all of the radio buttons
-
+    // variable for the number of results to show
     let resultLimit;
     
 
@@ -136,8 +135,13 @@ searchButton.addEventListener('click', function(){
             resultLimit = resultForm.value;
         }
     } else {
-        // switch to get selected radio button, implement later
-        resultLimit = 25;
+        // get selected radio button value by iterating through each radio button, finding the checked one!
+        radioButtons.forEach(radioButton => {
+            if (radioButton.checked)
+            resultLimit = radioButton.value;
+        });
+
+        // if searchCategory and searchLayer are arrays, user selected all categories, therefore load data 4 times
         if (Array.isArray(searchCategory) && Array.isArray(searchLayer)) {
             // for loop to iterate through all 4 layers and call loadData 4 types
             for (let i=0; i<4; i++) {
