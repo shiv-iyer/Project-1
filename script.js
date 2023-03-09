@@ -191,6 +191,9 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
     const queryResults = response.data;
     console.log(queryResults);
 
+    // declare marker type, will be assigned later to determine the category
+    let markerType;
+
     // next step: translate the data into functional params for marker display
     // get the total amount of search results, and plot as many amount of markers.
     // fourSquare's results is an array of objects. Use Object.keys to get as many keys to know the length
@@ -217,12 +220,16 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            // later, can do a switch on layerType
            if (layerType == petCafeLayer){
             resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: petCafeIcon});
+            markerType = "Pet Café";
            } else if (layerType == petGroomingLayer){
             resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: petGroomingIcon});
+            markerType = "Pet Grooming Service";
            } else if (layerType == petSuppliesLayer){
             resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: petSuppliesIcon});
+            markerType = "Pet Supplies Store";
            } else if (layerType == dogParksLayer){
             resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
+            markerType = "Dog Park";
            }
            /*if (layerType == dogParksLayer){
                resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
@@ -268,12 +275,18 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            // testing out both ways to add to class list: classList.add and setAttribute for class
            cardTitle.classList.add("marker-card-items");
            cardTitle.innerText = name;
-    
+
+           // card image code works, however the marker is cut off by the top of the map. look into fixing later only if time permits
+           /*const cardImageContainer = document.createElement("div");
+           const cardImage = document.createElement("img");
+           cardImage.src = '/assets/marker-images/dog-park-bg.jpg';
+           cardImageContainer.appendChild(cardImage);*/
+
            // category of the location
            const categoryText = document.createElement("p");
            categoryText.setAttribute("class", "card-text");
            categoryText.setAttribute("class", "marker-card-items");
-           categoryText.innerText = "Type: Pet Cafe";
+           categoryText.innerText = "Type: " + markerType;
 
            // now, child card text
            const addressText = document.createElement("p");
@@ -285,6 +298,7 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            
            // append the relevant children to the parents
            cardBody.appendChild(cardTitle);
+           //cardBody.appendChild(cardImageContainer);
            cardBody.appendChild(categoryText);
            cardBody.appendChild(addressText);
            cardContainer.appendChild(cardBody);
