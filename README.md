@@ -10,6 +10,8 @@ Fluff Finder allows for the seamless discovery of any pet-related locales in Sin
 (talk about target audience)
 All in all, the main goal of the website is to assist Singaporeans in finding any relevant locations for their pets. As some of these can be quite difficult to find for the average pet owner, Fluff Finder enables easy and near-instantaneous access to crucial information about any areas & services they might require for their pets. Ultimately, this saves users time and hassle, enriching the overall experience for all pet owners and their fluffy friends!
 
+Some more pain points: very difficult to find dog-friendly locations in SG, resources are limited, pet owners always asking online groups etc. Singapore is generally relatively dog friendly but lots of malls / shops etc. don't allow, so need to locate specific sometimes (especially rarer things like cafes)
+
 ## UI/UX Elements
 
 ### Structure
@@ -43,14 +45,13 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 ---
 
 ## Technologies Used
-(list everything out - HTML / CSS / JS / Bootstrap / Axios / Leaflet / Leaflet Marker Cluster / any others etc.)
 
 1. HTML
 
 2. CSS
 
 3. [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
-  - Was used for main website components, including the navbar, forms, buttons, and offCanvas functionality
+  - Was used for main website components, including the navbar, forms, buttons, and offcanvas functionality
 
 4. JavaScript
 
@@ -66,12 +67,12 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 --- 
 
 ## Testing
-(test cases)
+(table of test cases)
 
 ---
 
 ## Deployment
-(netlify)
+The web application is hosted on and was deployed through [Netlify](https://www.netlify.com/).
 
 ---
 
