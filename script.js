@@ -94,7 +94,6 @@ searchButton.addEventListener('click', function(){
 
     const selectedCategory = document.querySelector("#categoryForm").value;
     let searchCategory;
-    //alert("Category Form value: " + selectedCategory);
 
     // convert the category form value into functional fourSquare categories
     let searchLayer;
@@ -123,15 +122,16 @@ searchButton.addEventListener('click', function(){
     let resultLimit;
     
 
-    // first if everything is blank
+    // first validate if everything is blank, aka the user inputs nothing
     if (!resultForm.value && checkRadios() == 3){
-        alert("Please select the number of results you would like to display!");
+        // change the value of the updates form to display error messages!
+        updatesForm.value = "ERROR: Please try again after selecting the number of results you would like to display!";
     } else if (checkRadios() == 3) {
         if (isNaN(Number(resultForm.value))){
-            alert("Your custom results input was not a valid number, please try again!");
+            updatesForm.value = "ERROR: Please try again after inputting a valid number in the custom results field!";
             // now, ensure that the user inputted results from 10 to 50 only
         } else if (resultForm.value < 10 || resultForm.value > 50){
-            alert("You need to input a number from 10-50!");
+            updatesForm.value = "ERROR: Please try again after inputting a number between 10-50!";
         } else {
             resultLimit = resultForm.value;
         }
@@ -152,6 +152,7 @@ searchButton.addEventListener('click', function(){
         else {
             loadData(fourSquareURL, userQuery, searchCategory, searchLayer, resultLimit);
         }
+        updatesForm.value = "The map has been successfully updated!";
     }
 
     // now, retrieve the data from the results form
@@ -167,7 +168,8 @@ searchButton.addEventListener('click', function(){
 
 // Event Listener for clear button: on click
 document.querySelector("#btnClear").addEventListener('click', function(){
-    console.log("Clear button was clicked!");
+    // possible validation: alert user if map is already clear
+    updatesForm.value = "The map has been successfully cleared!";
     clearLayers();
 });
 
@@ -205,7 +207,7 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
     const searchResultsLength = Object.keys(response.data.results).length;
 
     if (searchResultsLength == 0){
-        alert("No search results found!");
+        updatesForm.value = "No search results were found, please try again!";
     } else {
         // traverse through from 0 to the amount of search results
         for (let i = 0; i < searchResultsLength; i++){ 
@@ -319,6 +321,7 @@ window.addEventListener("DOMContentLoaded", function(){
     console.log(queryForm);
     console.log(resultForm);
     console.log(updatesForm);
+    console.log(updatesForm.innerText);
 
     // Clear radio buttons if an input is detected on the result form; avoid users dual-submitting results options
     resultForm.addEventListener('input', function(){
@@ -349,6 +352,8 @@ document.querySelector("#emailSubmitBtn").addEventListener('click', function(){
     // basic validation for now: check if user input includes '@' and '.' to validate the email address.
     // and minimum length of the email address, since .com is 4 characters and @<domainName> would be minimum 5 so min length 9
     // further possible validation steps would involve RegEx, but it is very difficult to understand...
+
+    // change these alerts...
     if (!emailForm.value){
         alert("You left the email address field blank, please try again!");
     }
