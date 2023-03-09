@@ -1,13 +1,14 @@
 # Fluff Finder
 
-Fluff Finder is the perfect website for any pet lovers in Singapore! The site's primary feature is an interactive map, enabling users to discover various pet-friendly locations in Singapore. 
+Live link to demo: [Fluff Finder](https://fluff-finder.netlify.app/)
 
 ## Project Summary & Goals
 
-(talk about project overview / summary)
-Fluff Finder allows for the seamless discovery of any pet-related locales in Singapore: Pet Cafes, Pet Groomers, Pet Supplies Stores and Dog Parks. By displaying the name and address of each individual location on the map, <>. Each location category is also separated via different icons, enabling easy differentiation between the various locations it displays.
+### Overview 
+Fluff Finder is the perfect website for any pet lovers in Singapore! The site's primary feature is an interactive map, enabling users to discover various pet-friendly locations in Singapore. The website allows for the seamless discovery of any pet-related locales in Singapore: Pet Cafes, Pet Groomers, Pet Supplies Stores and Dog Parks. By displaying the name and address of each individual location on the map, <>. Each location category is also separated via different icons, enabling easy differentiation between the various locations it displays.
 
-(talk about target audience)
+### Target Audience & User Goals
+
 All in all, the main goal of the website is to assist Singaporeans in finding any relevant locations for their pets. As some of these can be quite difficult to find for the average pet owner, Fluff Finder enables easy and near-instantaneous access to crucial information about any areas & services they might require for their pets. Ultimately, this saves users time and hassle, enriching the overall experience for all pet owners and their fluffy friends!
 
 Some more pain points: very difficult to find dog-friendly locations in SG, resources are limited, pet owners always asking online groups etc. Singapore is generally relatively dog friendly but lots of malls / shops etc. don't allow, so need to locate specific sometimes (especially rarer things like cafes)
@@ -58,7 +59,7 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 2. CSS
 
 3. [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
-  - Was used for main website components, including the navbar, forms, buttons, and offcanvas functionality
+  - Was used for many of the main website components, including the navbar, forms, buttons, and offcanvas functionality. Was also utilized to implement mobile-responsiveness.
 
 4. JavaScript
 
@@ -80,8 +81,6 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 
 ## Deployment
 The web application is hosted on and was deployed through [Netlify](https://www.netlify.com/).
-
-[Link to Website](https://fluff-finder.netlify.app/)
 
 ---
 
