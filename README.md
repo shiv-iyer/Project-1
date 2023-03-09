@@ -96,14 +96,28 @@ The web application is hosted on and was deployed through [Netlify](https://www.
 ---
 
 ## Credits and Acknowledgment
-(credit all external assets here. ex. fonts, icons, data (where you got the API from, ex. FourSquare), screenshot tool to create mockup)
+
+### Data
+- [FourSquare API](https://foursquare.com/) — Used for all location data (lat/long coordinates, names, addresses)
+- [RandomDog API](https://random.dog/woof.json) — Used for retrieving random dog images
+
+### Icons
+
+- [FlatIcon](https://www.flaticon.com/) — Used for map marker icons on the website
+- [FontAwesome](https://fontawesome.com/icons) - Used for inline button icons on the website
 
 #### Custom Fonts from Google Fonts
 
-[Play](https://fonts.google.com/specimen/Play)
+- [Play](https://fonts.google.com/specimen/Play)
 
-[Unbounded](https://fonts.google.com/specimen/Unbounded)
+- [Unbounded](https://fonts.google.com/specimen/Unbounded)
 
-[Carter One](https://fonts.google.com/specimen/Carter+One)
+- [Carter One](https://fonts.google.com/specimen/Carter+One)
 
-[Excalidraw - Creation of Structure Diagram](https://excalidraw.com/)
+### Assets
+
+- [CreateMockup](https://www.createmockup.com/generate/) - Used to create the mobile-responsive mockup for the website
+- [Excalidraw](https://excalidraw.com/) — Used to create the structure diagram for the website
+- [Coolors](https://coolors.co/) — Used to create the base color palette asset for the website
+
+Thank you so much to Paul, my lecturer, all of my seniors & TAs, as well as my classmates for help, guidance and support throughout this project.
