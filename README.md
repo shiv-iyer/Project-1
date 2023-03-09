@@ -1,17 +1,20 @@
 # Fluff Finder
+[image]
 
 Live link to demo: [Fluff Finder](https://fluff-finder.netlify.app/)
 
-## Project Summary & Goals
+## Project Summary
 
 ### Overview 
-Fluff Finder is the perfect website for any pet lovers in Singapore! The site's primary feature is an interactive map, enabling users to discover various pet-friendly locations in Singapore. The website allows for the seamless discovery of any pet-related locales in Singapore: Pet Cafes, Pet Groomers, Pet Supplies Stores and Dog Parks. By displaying the name and address of each individual location on the map, <>. Each location category is also separated via different icons, enabling easy differentiation between the various locations it displays.
+Fluff Finder is the perfect website for any pet lovers in Singapore! The site's primary feature is an interactive map, enabling users to discover various pet-friendly locations in Singapore. The website allows for the seamless discovery of any pet-related locales in Singapore: Pet Cafes, Pet Groomers, Pet Supplies Stores, and Dog Parks. By displaying the name and address of each individual location on the map, users can identify locations they would like to learn more about or even travel to with ease. Each location category is also separated via different icons, enabling easy differentiation between the various locations the map displays.
+
+The site also features a relaxing second page where users can enjoy randomly-generated images of dogs!
 
 ### Target Audience & User Goals
 
-All in all, the main goal of the website is to assist Singaporeans in finding any relevant locations for their pets. As some of these can be quite difficult to find for the average pet owner, Fluff Finder enables easy and near-instantaneous access to crucial information about any areas & services they might require for their pets. Ultimately, this saves users time and hassle, enriching the overall experience for all pet owners and their fluffy friends!
+All in all, the main goal of the website is to assist Singaporeans in finding any relevant locations for their pets. This website will be useful for any dog & cat owners in Singapore, as many animal-friendly locations fly under the radar and can be quite difficult to pinpoint. As an example, it is relatively common for dog owners to ask online groups about where they can discover new and fun dog-friendly locations, especially dog cafés. Generally, no one memorizes a list of every single mall that allows dogs. Sometimes, you just want to go for a nice outing and enjoy the company of your pet, but limited information makes this task a bit more difficult.
 
-Some more pain points: very difficult to find dog-friendly locations in SG, resources are limited, pet owners always asking online groups etc. Singapore is generally relatively dog friendly but lots of malls / shops etc. don't allow, so need to locate specific sometimes (especially rarer things like cafes)
+Fluff Finder enables easy and near-instantaneous access to crucial information - such as names and addresses - about any relevant areas & services pet owners might require. Ultimately, this saves users time and hassle, enriching the overall experience for all pet owners and their fluffy friends!
 
 ## UI/UX Elements
 
