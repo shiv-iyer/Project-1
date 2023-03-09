@@ -17,25 +17,25 @@ let resultForm;
 // Custom Leaflet marker icons for each individual category
 const petCafeIcon = L.icon({
     // worry about other variables / options later, first, establish basic functionality for one category
-    iconUrl: '/images/dog-park.png',
+    iconUrl: '/assets/marker-images/dog-park.png',
     iconSize: [44, 44]
 });
 
 const petGroomingIcon = L.icon({
     // worry about other variables / options later, first, establish basic functionality for one category
-    iconUrl: '/images/pet-grooming.png',
+    iconUrl: '/assets/marker-images/pet-grooming.png',
     iconSize: [44, 44]
 });
 
 const petSuppliesIcon = L.icon({
     // worry about other variables / options later, first, establish basic functionality for one category
-    iconUrl: '/images/pet-supplies.png',
+    iconUrl: '/assets/marker-images/pet-supplies.png',
     iconSize: [44, 44]
 });
 
 const dogParkIcon = L.icon({
     // worry about other variables / options later, first, establish basic functionality for one category
-    iconUrl: '/images/dog-park.png',
+    iconUrl: '/assets/marker-images/dog-park.png',
     iconSize: [44, 44]
 });
 
