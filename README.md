@@ -50,18 +50,18 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 2. CSS
 
 3. [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
-- Was used for main website components, including the navbar, forms, buttons, and offCanvas functionality
+  - Was used for main website components, including the navbar, forms, buttons, and offCanvas functionality
 
 4. JavaScript
 
 5. [Axios](https://github.com/axios/axios)
-- Used for fetching relevant data from APIs to be processed for the website
+  - Used for fetching relevant data from APIs to be processed for the website
 
 6. [LeafletJS](https://leafletjs.com/)
-- Used for creating and rendering the interactive map on the website
+  - Used for creating and rendering the interactive map on the website
 
 7. [Leaflet Marker Cluster](https://github.com/Leaflet/Leaflet.markercluster)
-- Used for grouping markers on the map into clusters
+  - Used for grouping markers on the map into clusters
 
 --- 
 
