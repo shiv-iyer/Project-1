@@ -231,11 +231,6 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
             resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
             markerType = "Dog Park";
            }
-           /*if (layerType == dogParksLayer){
-               resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: dogParkIcon});
-           } else if (layerType =={
-               resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude]);
-           }*/
            
            // retrieve results from API query
            const name = queryResults.results[i].name;
@@ -275,12 +270,6 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            // testing out both ways to add to class list: classList.add and setAttribute for class
            cardTitle.classList.add("marker-card-items");
            cardTitle.innerText = name;
-
-           // card image code works, however the marker is cut off by the top of the map. look into fixing later only if time permits
-           /*const cardImageContainer = document.createElement("div");
-           const cardImage = document.createElement("img");
-           cardImage.src = '/assets/marker-images/dog-park-bg.jpg';
-           cardImageContainer.appendChild(cardImage);*/
 
            // category of the location
            const categoryText = document.createElement("p");
