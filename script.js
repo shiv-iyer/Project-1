@@ -90,7 +90,6 @@ searchButton.addEventListener('click', function(){
     clearLayers();
 
     const userQuery = queryForm.value;
-    console.log("User query: " + userQuery);
 
     const selectedCategory = document.querySelector("#categoryForm").value;
     let searchCategory;
@@ -115,12 +114,8 @@ searchButton.addEventListener('click', function(){
         // maybe don't need default? since it is only 1 of 4 options rn
     }
 
-    console.log(searchCategory);
-
-
     // variable for the number of results to show
     let resultLimit;
-    
 
     // first validate if everything is blank, aka the user inputs nothing
     if (!resultForm.value && checkRadios() == 3){
@@ -154,16 +149,7 @@ searchButton.addEventListener('click', function(){
         }
         updatesForm.value = "The map has been successfully updated!";
     }
-
-    // now, retrieve the data from the results form
-
-    // type of results is a string
-    console.log("Result limit: " + resultLimit);
-
-    // if results form is left blank, perform validation and avoid calling any functions
-    // can refactor this into a switch later
     }
-
 );
 
 // Event Listener for clear button: on click
@@ -177,7 +163,6 @@ document.querySelector("#btnClear").addEventListener('click', function(){
 // Quotations are optional for the key names. They are just so we know they are strings
 // add back: latLong and searchValue in the params
 async function loadData(url, userQuery, searchType, layerType, resultLimit){
-    console.log("Search category: " + searchType);
     const response = await axios.get(url, {
         headers: {
             // Use capital letters for these headers
@@ -196,7 +181,6 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
 
     // make sure queryResults gets logged out successfully first
     const queryResults = response.data;
-    console.log(queryResults);
 
     // declare marker type, will be assigned later to determine the category
     let markerType;
@@ -218,13 +202,10 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
             // seeing as Leaflet markers require an array of coords, store as that first, hard code it
             // there has to be an elegant way to make it from an object into an array look into later!!!
     
-            console.log(layerType == dogParksLayer);
-    
-           // if layer type = dog parks layer, add custom icon, else normal
-    
            let resultMarker;
     
-           // later, can do a switch on layerType
+           // depending on the layer type, assign the custom marker icon and markerType text 
+           // could possibly be refactored into a switch?
            if (layerType == petCafeLayer){
             resultMarker = L.marker([queryGeocodes.latitude, queryGeocodes.longitude], {icon: petCafeIcon});
             markerType = "Pet Café";
@@ -243,7 +224,7 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            const name = queryResults.results[i].name;
            const formattedAddress = queryResults.results[i].location.formatted_address;
 
-           // create <li> elements
+           // create <li> elements for the search results list
            const liElement = document.createElement('li');
            liElement.classList.add("liElements");
            liElement.innerHTML = name;
@@ -251,7 +232,7 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            liElement.addEventListener('click', () => {
             // close the off canvas container
             document.querySelector("#offCanvasContainer").classList.toggle("show");
-            // FUTURE REF: the bootstrap off canvas creates a div that has the class modal-backdrop whatever
+            // FOR REF: the bootstrap off canvas creates a div that has the class modal-backdrop
 
 
             map.flyTo([queryGeocodes.latitude, queryGeocodes.longitude], 17);
@@ -318,10 +299,6 @@ window.addEventListener("DOMContentLoaded", function(){
     radioButtons = document.querySelectorAll(".radios");
     resultForm = document.getElementById("resultLimitForm");
     updatesForm = document.getElementById("mapUpdatesForm");
-    console.log(queryForm);
-    console.log(resultForm);
-    console.log(updatesForm);
-    console.log(updatesForm.innerText);
 
     // Clear radio buttons if an input is detected on the result form; avoid users dual-submitting results options
     resultForm.addEventListener('input', function(){
