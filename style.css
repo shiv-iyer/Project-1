@@ -190,3 +190,9 @@
   border-radius: 8px;
   padding: 10px;
 }
+
+input[readonly]{
+  background-color: snow;
+  border: 1px solid black;
+  padding: 5px;
+}
