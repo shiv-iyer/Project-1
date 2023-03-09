@@ -20,7 +20,7 @@ Some more pain points: very difficult to find dog-friendly locations in SG, reso
 ### Design Decisions
 
 #### Color Scheme
-(display colors of the website and the goal of them - what kind of feel / vibe do they give?)
+![Color Scheme screenshot](assets/resources/color-palette.jpg)
 
 #### Fonts
 
