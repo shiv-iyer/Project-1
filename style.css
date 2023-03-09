@@ -194,7 +194,7 @@
 /* further styling for read only form to make it appear nicer, lacks a border and padding otherwise... */
 input[readonly]{
   background-color: whitesmoke;
-  border: 1px solid black;
+  border: 2px dashed black;
   padding: 5px;
   text-align: center;
 }

@@ -186,8 +186,9 @@
             </button>
             
             <!-- use form-control-plaintext to make the field readonly but display as normal -->
+            <!-- limitation: unable to find a way to wrap this text inside the form, would be easy with a p or other element, but would require changing how the value is updated -->
             <div id="mapUpdatesContainer" class="mt-2">
-                <input type="text" class="form-control-plaintext" id="mapUpdatesForm" placeholder="Map Updates will appear here!" readonly>
+                <input type="text" class="form-control-plaintext text-break" id="mapUpdatesForm" placeholder="Map Updates will appear here!" readonly>
             </div>
 
         </div>
