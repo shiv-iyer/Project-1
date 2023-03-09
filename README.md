@@ -19,12 +19,12 @@ Fluff Finder enables easy and near-instantaneous access to crucial information -
 ## UI/UX Elements
 
 ### Structure
-(wireframe... hmm...)
+![Structure Diagram image](assets/resources/structure.png)
 
 ### Design Decisions
 
 #### Color Scheme
-![Color Scheme screenshot](assets/resources/color-palette.jpg)
+![Color Scheme image](assets/resources/color-palette.jpg)
 
 The main color scheme of the project revolves around a light background (a beige-wheat gradient), with a lavender accent for the header. The items within the main content box are backed by a smooth snowy base. These light colors evoke a sense of calm and tranquility, while maintaining an elegant touch. Light colors are also easy on the eyes, avoiding any jarring effects and creating an affable atmosphere. The lavender color also represents a sense of elegance and sophistication. Mint green highlighting is also used to directly complement the lavender header color. All in all, these colors come together to present the website in a professional yet friendly manner.
 
@@ -100,4 +100,4 @@ The web application is hosted on and was deployed through [Netlify](https://www.
 
 [Carter One](https://fonts.google.com/specimen/Carter+One)
 
-https://www.aacounty.org/services-and-programs/dogs-in-the-park dog park image
+[Excalidraw - Creation of Structure Diagram](https://excalidraw.com/)
