@@ -7,8 +7,6 @@ const FOURSQUARE_API_KEY = "fsq3jMP2VLbUVepHLNvSdnHHmMc7KnQT7vAYp7wRcl+DPvU=";
 const sgLatLong = "1.290270,103.851959";
 const searchButton = document.getElementById("btnSearch");
 
-const test = 1;
-
 // initialize some variables that will be assigned after dom content loaded
 let queryForm;
 let radioButtons;
@@ -16,25 +14,22 @@ let resultForm;
 
 // Custom Leaflet marker icons for each individual category
 const petCafeIcon = L.icon({
-    // worry about other variables / options later, first, establish basic functionality for one category
+    // implement a custom icon url for the marker
     iconUrl: '/assets/marker-images/dog-park.png',
     iconSize: [44, 44]
 });
 
 const petGroomingIcon = L.icon({
-    // worry about other variables / options later, first, establish basic functionality for one category
     iconUrl: '/assets/marker-images/pet-grooming.png',
     iconSize: [44, 44]
 });
 
 const petSuppliesIcon = L.icon({
-    // worry about other variables / options later, first, establish basic functionality for one category
     iconUrl: '/assets/marker-images/pet-supplies.png',
     iconSize: [44, 44]
 });
 
 const dogParkIcon = L.icon({
-    // worry about other variables / options later, first, establish basic functionality for one category
     iconUrl: '/assets/marker-images/dog-park.png',
     iconSize: [44, 44]
 });
@@ -49,7 +44,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // create individual marker cluster groups for each layer to be displayed.
 
-// customize html of the marker cluster display... WIP
+// Customize the html of the marker cluster display...
 // from Marker Cluster documentation. style the div so that 
 // className of the icon will be dummy so that it overrides Leaflet's default marker cluster icon class, which has a white background
 const petCafeLayer = L.markerClusterGroup({
@@ -75,8 +70,6 @@ const dogParksLayer = L.markerClusterGroup({
         return L.divIcon({html: '<div class="dogParkDot">' + cluster.getChildCount() + '</div>', className:'dummy'});
     }
 }).addTo(map);
-
-L.layerGroup()
 
 // controller for layer groups
 const layerController = L.control.layers(
@@ -268,28 +261,35 @@ async function loadData(url, userQuery, searchType, layerType, resultLimit){
            // next, card body
            const cardBody = document.createElement("div");
            cardBody.setAttribute("class", "card-body");
+           cardBody.setAttribute("class", "marker-card-main");
            // now, card title
            const cardTitle = document.createElement("h5");
            cardTitle.setAttribute("class", "card-title");
+           // testing out both ways to add to class list: classList.add and setAttribute for class
+           cardTitle.classList.add("marker-card-items");
            cardTitle.innerText = name;
     
+           // category of the location
+           const categoryText = document.createElement("p");
+           categoryText.setAttribute("class", "card-text");
+           categoryText.setAttribute("class", "marker-card-items");
+           categoryText.innerText = "Type: Pet Cafe";
+
            // now, child card text
-           const cardText = document.createElement("p");
-           cardText.setAttribute("class", "card-text");
-           cardText.innerText = formattedAddress;
+           const addressText = document.createElement("p");
+           addressText.setAttribute("class", "card-text");
+           addressText.setAttribute("class", "marker-card-items");
+           addressText.innerText = "Address: " + formattedAddress;
     
            // possible todo: secondary "Type: Pet Cafe" for whatever category it is
-           // image testing
-           let imageUrl = queryResults.results[i].categories[0].icon.prefix;
-           const imageSuffix = ".png";
-           imageUrl += imageSuffix;
-           console.log("image url: " + imageUrl);
            
-           // append stuff
+           // append the relevant children to the parents
            cardBody.appendChild(cardTitle);
-           cardBody.appendChild(cardText);
+           cardBody.appendChild(categoryText);
+           cardBody.appendChild(addressText);
            cardContainer.appendChild(cardBody);
     
+           // bind the card as a popup to the marker
            resultMarker.bindPopup(cardContainer);
     
             // add event listener to fly to marker on click
@@ -310,8 +310,8 @@ window.addEventListener("DOMContentLoaded", function(){
     console.log(queryForm);
     console.log(resultForm);
 
+    // Clear radio buttons if an input is detected on the result form; avoid users dual-submitting results options
     resultForm.addEventListener('input', function(){
-        console.log("hi");
         if (checkRadios() < 3){
             radioButtons.forEach(radioButton => {
                 if (radioButton.checked)
@@ -322,19 +322,14 @@ window.addEventListener("DOMContentLoaded", function(){
 });
 
 function checkRadios(){
+    // initialize a variable for the number of unchecked radio buttons
     let numUncheckedRadios = 0;
+    // iterate through the radio buttons, and increment the numUncheckedRadios if unchecked radios are found
     radioButtons.forEach(radioButton => {
         if (!radioButton.checked)
             numUncheckedRadios++;
     });
-    console.log("Check radios was reached");
     return numUncheckedRadios;
-}
-
-function createMarkers(){
-    // parameters to be passed in:
-    // - search results length
-    // - 
 }
 
 // Event listener for the email form submission
@@ -356,17 +351,10 @@ document.querySelector("#emailSubmitBtn").addEventListener('click', function(){
     }
 });
 
-
-/*function createMarkerCard(){
-    return;
-}*/
-
+// Clear all layers from the marker cluster groups.
 function clearLayers(){
     petCafeLayer.clearLayers();
     petGroomingLayer.clearLayers();
     petSuppliesLayer.clearLayers();
     dogParksLayer.clearLayers();
 }
-
-// TODO: refactor my functions to be individual (not all part of the loadData function)
-
