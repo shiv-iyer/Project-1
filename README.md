@@ -87,7 +87,12 @@ All in all, the selected fonts are directly in-line with the goal of making the 
 --- 
 
 ## Testing
-(just do as pdf, table for next project)
+| Test Case | Steps | Expected Result |
+| ----------- | -----------  | ----------- |
+| User searches for results | Select parameters, click on search button | Various markers display on the map |
+| User inputs erroneous search data | Input invalid data in the results field: special characters or numbers out of the 10-50 range | Error validation and displaying of an error message the map update form |
+| User opens search results pane | Click on search results button after a successful search | Search canvas slides into the page, displaying results in a formatted list |
+| User randomizes dog image | Click on refresh button | A new image is appended to the card |
 
 ---
 
